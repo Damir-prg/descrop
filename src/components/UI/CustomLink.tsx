@@ -7,7 +7,7 @@ const CustomLink = ({path, title}: UITypes.TCustomLink) => {
     return (
         <Link
             to={path}
-            className=""
+            className="hover:bg-gray-700 py-1 px-3 rounded-lg"
         >
             {title}
         </Link>

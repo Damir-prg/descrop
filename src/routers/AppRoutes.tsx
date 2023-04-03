@@ -7,6 +7,7 @@ import {MainHeader} from "../components";
 
 
 const AppRoutes = () => {
+    // Получение начального значение аутенфикации [false]
     const status = useStore(AuthStore.$authStatus);
 
     return (

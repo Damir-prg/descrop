@@ -18,3 +18,11 @@ export type TCustomSelect = {
 export type TCustomLink = {
     path: string;
 } & TTitle;
+
+
+export type TRowWithProps = {
+    type: "text" | "phone" | "email" | "date";
+    body: string;
+    title: string;
+    cssProps?: string;
+}

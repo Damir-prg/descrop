@@ -12,3 +12,8 @@ export type THeaderLink = {
     path: string;
     title: string;
 }
+
+export type TChartData = {
+    letter: string;
+    frequency: number;
+}

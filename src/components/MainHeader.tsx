@@ -18,7 +18,7 @@ const MainHeader = () => {
                 className="text-xl font-mono tracking-widest uppercase"
             >descrop</span>
             <div
-                className="flex flex-row flex-wrap gap-6"
+                className="flex flex-row flex-wrap gap-3"
             >
                 {HeaderConst.headerLinks.map(el =>
                     <UI.CustomLink path={el.path} title={el.title}/>)
