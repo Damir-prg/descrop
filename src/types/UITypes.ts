@@ -26,3 +26,8 @@ export type TRowWithProps = {
     title: string;
     cssProps?: string;
 }
+
+export type TModalWrapper = {
+    isOpen: boolean,
+    setIsOpen: (bool: boolean) => void,
+} & TChildren;

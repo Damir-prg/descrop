@@ -7,8 +7,10 @@ export type TUserCard = {
 }
 
 export type TUserChart = {
-    width: number;
-    height: number;
-    margin?: { top: number; right: number; bottom: number; left: number };
-    levels?: number;
+    size: number
 };
+
+export type TNewUserInfoFrom = {
+    prevData: IUser;
+    closeModal?: (bool: boolean) => void;
+}

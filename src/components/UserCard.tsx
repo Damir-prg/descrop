@@ -1,9 +1,10 @@
-import React, {FC} from 'react';
-import {UI} from "./index";
+import React, {FC, useState} from 'react';
+import {UI, forms} from "./index";
 import {ComponentsTypes} from "../types";
 
 
 const UserCard:FC<ComponentsTypes.TUserCard> = ({ textStyles, data}) => {
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     return (
         <div
             className="
@@ -20,7 +21,9 @@ const UserCard:FC<ComponentsTypes.TUserCard> = ({ textStyles, data}) => {
                     w-40 h-40 bg-[#fc6e20] rounded-[50%] flex items-center justify-center
                     `}
                 >IMAGE</div>
-                <UI.CustomLink path="/self" title="Редактировать" />
+                <UI.CustomButtonAction type="button" title="Редактировать" onClick={(e) => setIsModalOpen(true)}>
+                    Редактировать
+                </UI.CustomButtonAction>
             </div>
             <div
                 className=" flex flex-col gap-3"
@@ -44,6 +47,9 @@ const UserCard:FC<ComponentsTypes.TUserCard> = ({ textStyles, data}) => {
                 <UI.RowWithProps
                     type="text" title="Активных проектов" body={String(data.activeProjects)} cssProps={textStyles}/>
             </div>
+            <UI.ModalWrapper isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
+                <forms.NewUserInfoForm prevData={data} closeModal={setIsModalOpen}/>
+            </UI.ModalWrapper>
         </div>
     );
 };

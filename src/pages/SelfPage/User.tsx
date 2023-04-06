@@ -10,22 +10,9 @@ const User = () => {
     const userPageStyles = `bg-[#fc6e20] rounded-lg p-2 text-[#323232]`;
     return (
         <div
-            className="w-full h-full flex flex-row items-center justify-around"
+            className="w-full h-full flex flex-row items-center justify-center gap-4"
         >
-            <div
-                className="
-                flex flex-col items-start gap-3
-                w-fit h-fit
-                bg-[#323232]
-                rounded-lg
-                py-4 px-4"
-            >
-                {ChartConsts.data.map((el, i) =>
-                    <UI.RowWithProps
-                        type="text" title={String(i+1)} body={el.letter} cssProps={userPageStyles}/>)
-                }
-            </div>
-            <UserChart width={300} height={300} />
+            <UserChart size={400}/>
             <UserCard textStyles={userPageStyles} data={userData}/>
         </div>
     );

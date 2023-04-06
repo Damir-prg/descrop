@@ -14,6 +14,7 @@ export type THeaderLink = {
 }
 
 export type TChartData = {
-    letter: string;
-    frequency: number;
+    name: string;
+    max: number;
+    color?: string;
 }

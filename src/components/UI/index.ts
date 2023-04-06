@@ -3,6 +3,7 @@ import {CustomButtonAction} from "./CustomButtonAction";
 import {CustomSelect} from "./CustomSelect";
 import {CustomLink} from "./CustomLink"
 import {RowWithProps} from "./RowWithProps";
+import {ModalWrapper} from "./ModalWrapper";
 
 
 export {
@@ -10,5 +11,6 @@ export {
     CustomButtonAction,
     CustomSelect,
     CustomLink,
-    RowWithProps
+    RowWithProps,
+    ModalWrapper
 }
