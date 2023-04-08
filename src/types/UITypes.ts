@@ -38,3 +38,5 @@ export type TCustomLabel = {
     backgroundColor?: string;
     underline?: boolean;
 } & TChildren;
+
+export type TTaskItem = TTitle;
