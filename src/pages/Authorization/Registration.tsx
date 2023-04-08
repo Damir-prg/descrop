@@ -16,11 +16,11 @@ const Registration = () => {
         <CenterWrapper>
             <form
                 className="flex items-center justify-center
-            bg-[#323232] p-3 rounded-lg w-8/12 flex-col
+            bg-gray p-3 rounded-lg w-8/12 flex-col
             gap-5 drop-shadow-2xl"
             >
                 <h1
-                    className="text-[#fc6e20] font-[200] tracking-widest text-3xl"
+                    className="text-orange font-[200] tracking-widest text-3xl"
                 >Регистрация</h1>
                 <UI.Custom.RowInput type="text" placeholder="Введите логин" />
                 <UI.Custom.RowInput type="text" placeholder="Введите пароль"/>
@@ -38,9 +38,9 @@ const Registration = () => {
 
                     />
                 </div>
-                <span className="w-full text-left text-[#ffe7d0]">Уже есть аккаунт?{" "}
+                <span className="w-full text-left text-beige">Уже есть аккаунт?{" "}
                     <Link
-                        className="text-[#fc6e20] underline hover:text-amber-600"
+                        className="text-orange underline hover:text-amber-600"
                         to="/login"
                     >Войти</Link>
                 </span>
