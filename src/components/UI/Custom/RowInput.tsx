@@ -1,8 +1,8 @@
 import React from 'react';
-import {UITypes} from "../../types";
+import {UITypes} from "../../../types";
 
 
-const CustomRowInput = ({type, onChange, placeholder, autoFocus}: UITypes.TCustomRowInput) => {
+const RowInput = ({type, onChange, placeholder, autoFocus}: UITypes.TCustomRowInput) => {
     return (
         <input
             type={type}
@@ -14,4 +14,4 @@ const CustomRowInput = ({type, onChange, placeholder, autoFocus}: UITypes.TCusto
     );
 };
 
-export {CustomRowInput};
+export {RowInput};

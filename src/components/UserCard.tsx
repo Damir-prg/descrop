@@ -8,11 +8,11 @@ const UserCard:FC<ComponentsTypes.TUserCard> = ({ textStyles, data}) => {
     return (
         <div
             className="
-            w-fit h-fit
+            w-[80%] h-fit
             bg-[#323232]
             rounded-lg
             py-4 px-4
-            flex flex-row gap-5
+            flex flex-col gap-5
             "
         >
             <div className="flex flex-col gap-4 text-[#ffe7d0] items-center">
@@ -21,12 +21,12 @@ const UserCard:FC<ComponentsTypes.TUserCard> = ({ textStyles, data}) => {
                     w-40 h-40 bg-[#fc6e20] rounded-[50%] flex items-center justify-center
                     `}
                 >IMAGE</div>
-                <UI.CustomButtonAction type="button" title="Редактировать" onClick={(e) => setIsModalOpen(true)}>
+                <UI.Custom.ButtonAction type="button" title="Редактировать" onClick={(e) => setIsModalOpen(true)}>
                     Редактировать
-                </UI.CustomButtonAction>
+                </UI.Custom.ButtonAction>
             </div>
             <div
-                className=" flex flex-col gap-3"
+                className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2"
             >
                 <UI.RowWithProps
                     type="text" title="ФИО" body={data.initials} cssProps={textStyles}/>

@@ -22,17 +22,17 @@ const Registration = () => {
                 <h1
                     className="text-[#fc6e20] font-[200] tracking-widest text-3xl"
                 >Регистрация</h1>
-                <UI.CustomRowInput type="text" placeholder="Введите логин" />
-                <UI.CustomRowInput type="text" placeholder="Введите пароль"/>
-                <UI.CustomRowInput type="password" placeholder="Повторите пароль"/>
+                <UI.Custom.RowInput type="text" placeholder="Введите логин" />
+                <UI.Custom.RowInput type="text" placeholder="Введите пароль"/>
+                <UI.Custom.RowInput type="password" placeholder="Повторите пароль"/>
                 <div className="flex flex-row justify-between w-full">
-                    <UI.CustomSelect
+                    <UI.Custom.Select
                         options={AuthConst.governance.map(el => el.title)}
                         placeholder="Выбрать управление"
                         onChange={sortByGovernanceChange}
 
                     />
-                    <UI.CustomSelect
+                    <UI.Custom.Select
                         options={departments}
                         placeholder="Выбрать отдел"
 
@@ -44,10 +44,10 @@ const Registration = () => {
                         to="/login"
                     >Войти</Link>
                 </span>
-                <UI.CustomButtonAction
+                <UI.Custom.ButtonAction
                     type="button"
                     title="Отправить данные на проверку и войти"
-                >Зарегистрироваться</UI.CustomButtonAction>
+                >Зарегистрироваться</UI.Custom.ButtonAction>
             </form>
         </CenterWrapper>
     );

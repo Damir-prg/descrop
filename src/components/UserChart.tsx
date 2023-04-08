@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React from "react";
 import ReactEcharts from "echarts-for-react";
 import {ChartConsts} from "../consts";
 
@@ -26,7 +26,11 @@ const option = {
 };
 
 export const UserChart = ({size}: {size: number}) => {
-    return <ReactEcharts
-        option={option}
-        style={{height: `${size}px`, width: `${size+170}px`}}/>
+    return (
+        <div className="bg-[#323232] w-fit h-fit rounded-lg w-[80%] flex items-center justify-center">
+            <ReactEcharts
+                option={option}
+                style={{height: `${size}px`, width: `100%`}}/>
+        </div>
+    )
 }

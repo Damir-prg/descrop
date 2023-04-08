@@ -16,19 +16,19 @@ const Login = () => {
             gap-5 drop-shadow-2xl"
         >
             <h1 className="text-[#fc6e20] font-[200] tracking-widest text-3xl">Авторизация</h1>
-            <UI.CustomRowInput type="text" placeholder="Введите логин" />
-            <UI.CustomRowInput type="password" placeholder="Введите пароль"/>
+            <UI.Custom.RowInput type="text" placeholder="Введите логин" />
+            <UI.Custom.RowInput type="password" placeholder="Введите пароль"/>
             <span className="w-full text-left text-[#ffe7d0]">Нет аккаунта?{" "}
                 <Link
                     className="text-[#fc6e20] underline hover:text-amber-600"
                     to="/registration"
                 >Зарегистрируйтесь!</Link>
             </span>
-            <UI.CustomButtonAction
+            <UI.Custom.ButtonAction
                 type="button"
                 title="Отправить данные на проверку и войти"
                 onClick={() => AuthStore.changeStatus()}
-            >Войти</UI.CustomButtonAction>
+            >Войти</UI.Custom.ButtonAction>
         </form>
     </CenterWrapper>
     );

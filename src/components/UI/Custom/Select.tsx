@@ -1,8 +1,8 @@
 import React from 'react';
-import {UITypes} from "../../types";
+import {UITypes} from "../../../types";
 
 
-const CustomSelect = (
+const Select = (
     {
         title,
         options,
@@ -38,4 +38,4 @@ const CustomSelect = (
     );
 };
 
-export {CustomSelect};
+export {Select};

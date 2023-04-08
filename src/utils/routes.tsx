@@ -11,7 +11,9 @@ export const publicException: UtilsTypes.IRoutes = {path: "*", element: <Navigat
 
 export const authRoutes: UtilsTypes.IRoutes[] = [
     {path: "/main", element: <></>},
-    {path: "/self", element: <User/>}
+    {path: "/self", element: <User/>},
+    {path: "/tasks", element: <></>},
+    {path: "/cloud", element: <></>},
 ]
 
 export const authException: UtilsTypes.IRoutes = {path: "*", element: <Navigate to="/main"/>}

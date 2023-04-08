@@ -31,3 +31,10 @@ export type TModalWrapper = {
     isOpen: boolean,
     setIsOpen: (bool: boolean) => void,
 } & TChildren;
+
+export type TCustomLabel = {
+    isBlockLabel: boolean;
+    textColor?: string;
+    backgroundColor?: string;
+    underline?: boolean;
+} & TChildren;

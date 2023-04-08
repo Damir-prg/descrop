@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {UITypes} from "../../types";
+import {UITypes} from "../../../types";
 
 
-const CustomLink = ({path, title}: UITypes.TCustomLink) => {
+const LinkButton = ({path, title}: UITypes.TCustomLink) => {
     return (
         <Link
             to={path}
@@ -14,4 +14,4 @@ const CustomLink = ({path, title}: UITypes.TCustomLink) => {
     );
 };
 
-export {CustomLink};
+export {LinkButton};

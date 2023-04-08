@@ -7,6 +7,7 @@ const MainHeader = () => {
     return (
         <header
             className="
+            sticky top-0 z-40
             text-[#ffe7d0] bg-[#323232]
             flex flex-row items-center justify-between
             w-full
@@ -21,7 +22,7 @@ const MainHeader = () => {
                 className="flex flex-row flex-wrap gap-3"
             >
                 {HeaderConst.headerLinks.map(el =>
-                    <UI.CustomLink path={el.path} title={el.title}/>)
+                    <UI.Custom.LinkButton path={el.path} title={el.title}/>)
                 }
             </div>
         </header>

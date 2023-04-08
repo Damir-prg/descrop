@@ -1,8 +1,8 @@
 import React from 'react';
-import {UITypes} from "../../types";
+import {UITypes} from "../../../types";
 
 
-const CustomButtonAction = ({children, type, onClick, title}: UITypes.TCustomButtonAction) => {
+const ButtonAction = ({children, type, onClick, title}: UITypes.TCustomButtonAction) => {
     return (
         <button
             onClick={onClick}
@@ -15,4 +15,4 @@ const CustomButtonAction = ({children, type, onClick, title}: UITypes.TCustomBut
     );
 };
 
-export {CustomButtonAction};
+export {ButtonAction};

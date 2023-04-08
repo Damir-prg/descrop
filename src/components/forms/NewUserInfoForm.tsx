@@ -27,20 +27,21 @@ const NewUserInfoForm: FC<ComponentsTypes.TNewUserInfoFrom> = (
 
     return (
         <form
-            className="w-fit h-fit flex flex-col gap-2 items-center justify-center"
+            className="w-fit h-fit flex flex-col gap-2 items-center justify-center w-[350px]"
             onSubmit={(e) => setNewUserData(e)}
         >
-            <UI.CustomRowInput type="text" placeholder="ФИО"
-                               onChange={(e) => setFormData({...prevData, initials: e.target.value})}/>
-            <UI.CustomRowInput type="text" placeholder="Управление"
-                               onChange={(e) => setFormData({...prevData, governance: e.target.value})}/>
-            <UI.CustomRowInput type="text" placeholder="Отдел"
-                               onChange={(e) => setFormData({...prevData, department: e.target.value})}/>
-            <UI.CustomRowInput type="text" placeholder="Должность"
-                               onChange={(e) => setFormData({...prevData, jobTitle: e.target.value})}/>
-            <UI.CustomRowInput type="tel" placeholder="Телефон"
-                               onChange={(e) => setFormData({...prevData, phone: e.target.value})}/>
-            <UI.CustomButtonAction type="submit">Изменить</UI.CustomButtonAction>
+            <h2 className="text-[#fc6e20] font-light mb-3">Изменение личных данных</h2>
+            <UI.Custom.RowInput type="text" placeholder="ФИО"
+                         onChange={(e) => setFormData({...prevData, initials: e.target.value})}/>
+            <UI.Custom.RowInput type="text" placeholder="Управление"
+                         onChange={(e) => setFormData({...prevData, governance: e.target.value})}/>
+            <UI.Custom.RowInput type="text" placeholder="Отдел"
+                         onChange={(e) => setFormData({...prevData, department: e.target.value})}/>
+            <UI.Custom.RowInput type="text" placeholder="Должность"
+                         onChange={(e) => setFormData({...prevData, jobTitle: e.target.value})}/>
+            <UI.Custom.RowInput type="tel" placeholder="Телефон"
+                         onChange={(e) => setFormData({...prevData, phone: e.target.value})}/>
+            <UI.Custom.ButtonAction type="submit">Изменить</UI.Custom.ButtonAction>
         </form>
     );
 };
