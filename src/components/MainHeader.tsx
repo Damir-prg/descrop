@@ -22,7 +22,7 @@ const MainHeader = () => {
                 className="flex flex-row flex-wrap gap-3"
             >
                 {HeaderConst.headerLinks.map(el =>
-                    <UI.Custom.LinkButton path={el.path} title={el.title}/>)
+                    <UI.Custom.LinkButton path={el.path} title={el.title} key={Math.random()}/>)
                 }
             </div>
         </header>

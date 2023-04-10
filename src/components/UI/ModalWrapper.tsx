@@ -9,7 +9,7 @@ const ModalWrapper: FC<UITypes.TModalWrapper> = ({isOpen, setIsOpen, children}) 
             <>
                 <div className="
                 absolute top-0 left-0 z-50
-                w-screen h-full
+                w-full h-full
                 bg-neutral-800
                 opacity-80
                 flex items-center justify-center

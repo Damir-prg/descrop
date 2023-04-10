@@ -4,6 +4,7 @@ import * as forms from "./forms";
 import {MainHeader} from "./MainHeader"
 import {UserCard} from "./UserCard";
 import {UserChart} from "./UserChart";
+import {MyTasks} from "./MyTasks";
 
 
 export {
@@ -12,4 +13,5 @@ export {
     MainHeader,
     UserCard,
     UserChart,
+    MyTasks
 }

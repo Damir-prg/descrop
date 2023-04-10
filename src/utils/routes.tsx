@@ -1,5 +1,5 @@
 import {UtilsTypes} from "../types"
-import {Login, Registration, User} from "../pages"
+import {Login, Registration, User, Tasks} from "../pages"
 import {Navigate} from "react-router-dom";
 
 export const publicRoutes: UtilsTypes.IRoutes[] = [
@@ -12,7 +12,7 @@ export const publicException: UtilsTypes.IRoutes = {path: "*", element: <Navigat
 export const authRoutes: UtilsTypes.IRoutes[] = [
     {path: "/main", element: <></>},
     {path: "/self", element: <User/>},
-    {path: "/tasks", element: <></>},
+    {path: "/tasks", element: <Tasks/>},
     {path: "/cloud", element: <></>},
 ]
 
