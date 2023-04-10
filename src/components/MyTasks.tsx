@@ -19,7 +19,7 @@ const MyTasks = () => {
             <UI.TaskItem title={"Сложность"} isBold={true}/>
         </div>
             {new Array(10).fill("").map(el => (
-                <div className="grid grid-cols-my-task-user w-[100%] border-b-[1px] border-[#ffe7d0]">
+                <div key={Math.random()} className="grid grid-cols-my-task-user w-[100%] border-b-[1px] border-[#ffe7d0]">
                     <UI.TaskItem title={"Word"}/>
                     <UI.TaskItem title={"Написать отчет"}/>
                     <UI.TaskItem title={"3 дня"}/>

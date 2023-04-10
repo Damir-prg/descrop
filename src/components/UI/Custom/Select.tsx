@@ -28,7 +28,7 @@ const Select = (
 
             >
                 {options.map((option, index) =>
-                    <option title={option} value={index}
+                    <option title={option} value={index} key={Math.random()}
                     >{optionSliceCount ? checkOptionLength(option) : option}
                     </option>
                 )}
