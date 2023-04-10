@@ -9,6 +9,10 @@ const Tasks = () => {
         >
             <UI.Custom.Label isBlockLabel={true}>Мои задачи</UI.Custom.Label>
             <MyTasks/>
+            <UI.Custom.Label isBlockLabel={true}>Задачи команды</UI.Custom.Label>
+            <MyTasks/>
+            <UI.Custom.Label isBlockLabel={true}>Задачи отдела</UI.Custom.Label>
+            <MyTasks/>
         </div>
     );
 };

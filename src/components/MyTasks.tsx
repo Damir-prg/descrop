@@ -12,14 +12,14 @@ const MyTasks = () => {
             flex flex-col items-center justify-start
             "
         >
-        <div className="grid grid-cols-4 w-[100%] border-b-[1px] border-[#ffe7d0]">
-            <UI.TaskItem title={"Заголовок"}/>
-            <UI.TaskItem title={"Описание"}/>
-            <UI.TaskItem title={"Сроки"}/>
-            <UI.TaskItem title={"Сложность"}/>
+        <div className="grid grid-cols-my-task-user w-[100%] border-b-[1px] border-[#ffe7d0]">
+            <UI.TaskItem title={"Заголовок"} isBold={true}/>
+            <UI.TaskItem title={"Описание"} isBold={true}/>
+            <UI.TaskItem title={"Сроки"} isBold={true}/>
+            <UI.TaskItem title={"Сложность"} isBold={true}/>
         </div>
             {new Array(10).fill("").map(el => (
-                <div className="grid grid-cols-4 w-[100%] border-b-[1px] border-[#ffe7d0]">
+                <div className="grid grid-cols-my-task-user w-[100%] border-b-[1px] border-[#ffe7d0]">
                     <UI.TaskItem title={"Word"}/>
                     <UI.TaskItem title={"Написать отчет"}/>
                     <UI.TaskItem title={"3 дня"}/>

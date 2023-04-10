@@ -39,4 +39,6 @@ export type TCustomLabel = {
     underline?: boolean;
 } & TChildren;
 
-export type TTaskItem = TTitle;
+export type TTaskItem = {
+    isBold?: boolean;
+} & TTitle;
