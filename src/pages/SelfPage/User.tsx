@@ -6,7 +6,7 @@ import React from "react";
 
 const User = () => {
     const userData = useStore(UserStore.$userInfo)
-    const userPageStyles = `bg-[#fc6e20] rounded-lg p-2 text-[#323232]`;
+    const userPageStyles = `bg-[#fc6e20] rounded-lg p-2 text-secondBg`;
     return (
         <div
             className="w-full h-full flex flex-col items-center justify-center py-6 gap-5"

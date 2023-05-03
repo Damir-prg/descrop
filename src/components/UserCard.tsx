@@ -9,19 +9,19 @@ const UserCard:FC<ComponentsTypes.TUserCard> = ({ textStyles, data}) => {
         <div
             className="
             w-[80%] h-fit
-            bg-[#323232]
+            bg-secondBg
             rounded-lg
             py-4 px-4
             flex flex-col gap-5
             "
         >
-            <div className="flex flex-col gap-4 text-[#ffe7d0] items-center">
+            <div className="flex flex-col gap-4 text-mainText items-center">
                 <div
                     className={`
                     w-40 h-40 bg-[#fc6e20] rounded-[50%] flex items-center justify-center
                     `}
                 >IMAGE</div>
-                <UI.Custom.ButtonAction type="button" title="Редактировать" onClick={(e) => setIsModalOpen(true)}>
+                <UI.Custom.ButtonAction type="button" title="Редактировать" onClick={() => setIsModalOpen(true)}>
                     Редактировать
                 </UI.Custom.ButtonAction>
             </div>

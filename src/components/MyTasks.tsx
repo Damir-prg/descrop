@@ -7,19 +7,19 @@ const MyTasks = () => {
             className="
             w-[80%] h-fit
             p-2
-            bg-[#323232]
+            bg-secondBg
             rounded-lg
             flex flex-col items-center justify-start
             "
         >
-        <div className="grid grid-cols-my-task-user w-[100%] border-b-[1px] border-[#ffe7d0]">
+        <div className="grid grid-cols-my-task-user w-[100%] border-b-[1px] border-mainText">
             <UI.TaskItem title={"Заголовок"} isBold={true}/>
             <UI.TaskItem title={"Описание"} isBold={true}/>
             <UI.TaskItem title={"Сроки"} isBold={true}/>
             <UI.TaskItem title={"Сложность"} isBold={true}/>
         </div>
-            {new Array(10).fill("").map(el => (
-                <div key={Math.random()} className="grid grid-cols-my-task-user w-[100%] border-b-[1px] border-[#ffe7d0]">
+            {new Array(10).fill("").map(() => (
+                <div key={Math.random()} className="grid grid-cols-my-task-user w-[100%] border-b-[1px] border-mainText">
                     <UI.TaskItem title={"Word"}/>
                     <UI.TaskItem title={"Написать отчет"}/>
                     <UI.TaskItem title={"3 дня"}/>

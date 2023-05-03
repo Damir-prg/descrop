@@ -10,7 +10,7 @@ const RowInput = ({type, onChange, placeholder, autoFocus, name, required}: UITy
             placeholder={placeholder}
             name={name}
             required={required}
-            className="outline-0 rounded-lg py-1 px-4 text-[#fc6e20] w-full"
+            className="outline-0 rounded-lg py-1 px-4 text-blockBg w-full"
             autoFocus={autoFocus || false}
         />
     );

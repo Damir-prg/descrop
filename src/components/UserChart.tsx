@@ -27,7 +27,7 @@ const option = {
 
 export const UserChart = ({size}: {size: number}) => {
     return (
-        <div className="bg-[#323232] w-[80%] h-fit rounded-lg flex items-center justify-center">
+        <div className="bg-secondBg w-[80%] h-fit rounded-lg flex items-center justify-center">
             <ReactEcharts
                 option={option}
                 style={{height: `${size}px`, width: `100%`}}/>

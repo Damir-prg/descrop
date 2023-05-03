@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
+* {
+    transition: var(--transition-time);
+}
+
 *::-webkit-scrollbar {
     width: 10px;
 

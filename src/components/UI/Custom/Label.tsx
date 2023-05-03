@@ -16,8 +16,8 @@ const Label:FC<UITypes.TCustomLabel> = (
             className={`
             flex flex-col items-start justify-start gap-2
             w-[80%] py-2 px-2
-            bg-[#${backgroundColor ? backgroundColor : "323232"}] 
-            text-[#${textColor ? textColor : "ffe7d0"}]
+            bg-[#${backgroundColor ? backgroundColor : "secondBg"}] 
+            text-[#${textColor ? textColor : "blockBg"}]
             ${isBlockLabel ? "rounded-lg" : ""}
             `}
         >
@@ -25,7 +25,7 @@ const Label:FC<UITypes.TCustomLabel> = (
             {underline &&
                 <span
                     className={`
-                    bg-[#${textColor ? textColor : "fc6e20"}] 
+                    bg-[#${textColor ? textColor : "blockBg"}] 
                     rounded-[2px] 
                     w-full h-[2px]
                     `}
