@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import "./styles/initial.css"
+import "./styles/initial.css";
+import "./styles/vars.css";
+import  "./styles/custom.css"
 import {AppRoutes} from "./routers/AppRoutes";
 
 import {DevSupport} from "@react-buddy/ide-toolbox";

@@ -37,7 +37,7 @@ const NewUserInfoForm: FC<ComponentsTypes.TNewUserInfoFrom> = (
             className="w-fit h-fit flex flex-col gap-2 items-center justify-center w-[650px]"
             onSubmit={(e) => setNewUserData(e)}
         >
-            <h2 className="text-[#fc6e20] font-light mb-3">Изменение личных данных</h2>
+            <h2 className="text-blockBg font-light mb-3">Изменение личных данных</h2>
             <UI.Custom.RowInput type="text" placeholder="ФИО" name="initials" required={true}/>
             <UI.Custom.RowInput type="text" placeholder="Управление" name="governance" required={true}/>
             <UI.Custom.RowInput type="text" placeholder="Отдел" name="department" required={true}/>

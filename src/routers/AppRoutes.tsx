@@ -11,7 +11,7 @@ const AppRoutes = () => {
     const status = useStore(AuthStore.$authStatus);
 
     return (
-        <main className="flex min-h-screen min-w-full relative bg-[#1b1b1b]">
+        <main className="flex min-h-screen min-w-full relative bg-mainBg">
             {status
                 ?
                 <StartWrapper>

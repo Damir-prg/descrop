@@ -19,7 +19,7 @@ const RowWithProps = ({type, title, body, cssProps}: UITypes.TRowWithProps) => {
     };
 
     return (
-            <span className={`text-[#ffe7d0] ${cssProps}`}>{title}: {checkType()}</span>
+            <span className={`text-mainText ${cssProps}`}>{title}: {checkType()}</span>
     );
 };
 

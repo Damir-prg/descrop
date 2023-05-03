@@ -1,0 +1,81 @@
+/* CHANGE BLOCK START*/
+.auth-change-block {
+    position: absolute;
+    background: #ecf0f3;
+    top: 0;
+    right: calc(100% - 400px);
+    height: 100%;
+    width: 400px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    z-index: 2;
+
+    transition: var(--auth-slide-time);
+}
+
+.auth-change-block.login {
+    right: 0;
+}
+
+/* CHANGE BLOCK END*/
+
+/* LOGIN BLOCK START*/
+
+.auth-login-block {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 40px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: var(--auth-slide-time);
+}
+
+.auth-login-block.hide {
+    z-index: -1;
+    left: calc(100% - 600px);
+    visibility: hidden;
+    width: 100px;
+}
+
+/* LOGIN BLOCK END*/
+
+/* REGISTRATION BLOCK START*/
+.auth-reg-block {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 40px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: var(--auth-slide-time);
+}
+
+.auth-reg-block.hide {
+    z-index: -1;
+    right: calc(100% - 600px);
+    visibility: hidden;
+    width: 100px;
+}
+
+/* REGISTRATION BLOCK END*/
+
+

@@ -18,7 +18,7 @@ const ModalWrapper: FC<UITypes.TModalWrapper> = ({isOpen, setIsOpen, children}) 
                      onClick={() => setIsOpen(false)}
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                w-fit h-fit bg-[#323232] rounded-lg p-6 z-50">
+                w-fit h-fit bg-secondBg rounded-lg p-6 z-50">
                     {children}
                 </div>
             </>

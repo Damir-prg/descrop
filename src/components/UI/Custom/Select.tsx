@@ -8,7 +8,8 @@ const Select = (
         options,
         optionSliceCount,
         onChange,
-        placeholder}: UITypes.TCustomSelect) => {
+        placeholder
+    }: UITypes.TCustomSelect) => {
 
     const checkOptionLength = (option: string): string => {
         if (optionSliceCount && option.length >= optionSliceCount) {
