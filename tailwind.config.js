@@ -5,10 +5,11 @@ module.exports = {
     extend: {
       colors: {
         transparent: 'transparent',
-        "blockBg": "#fc6e20",
-        "mainText": "#ffe7d0",
-        "secondBg": "#323232",
-        "mainBg": "#1b1b1b"
+        "mainBg": "#ecf0f3",
+        "text": "#181818",
+        "secondText": "#a0a5a8",
+        "tnGreen": "#038e63"
+
       },
       gridTemplateColumns: {
         "my-task-user": "1fr 3fr 1fr 1fr",
