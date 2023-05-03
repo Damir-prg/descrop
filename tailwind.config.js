@@ -7,8 +7,10 @@ module.exports = {
         transparent: 'transparent',
         "mainBg": "#ecf0f3",
         "text": "#181818",
+        "white": "#ffffff",
         "secondText": "#a0a5a8",
-        "tnGreen": "#038e63"
+        "tnGreen": "#4ade80",
+        "tnGreenLight": "#86efac"
 
       },
       gridTemplateColumns: {

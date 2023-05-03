@@ -1,0 +1,5 @@
+.custom__shadow-inner {
+    -webkit-box-shadow: 0 0 4px 2px rgba(34, 60, 80, 0.2) inset;
+    -moz-box-shadow: 0 0 4px 2px rgba(34, 60, 80, 0.2) inset;
+    box-shadow: 0 0 4px 2px rgba(34, 60, 80, 0.2) inset;
+}

@@ -21,7 +21,7 @@ const Select2: React.FC<TCustomSelect> = ({
     <div className={`${width} h-10 relative`} >
       <div
         className={`w-full transition-[0.3s] overflow-hidden
-         ${isActive ? "" : "max-h-10"} rounded-lg border absolute bg-mainText`}
+         ${isActive ? "" : "max-h-10"} rounded-lg border absolute bg-white`}
       >
         <div
           className={`relative cursor-pointer px-2 py-1.5 flex items-center justify-between ${
@@ -52,7 +52,7 @@ const Select2: React.FC<TCustomSelect> = ({
         >
           {options.map((option, index) => (
             <li
-              className="w-[95%] p-2 shadow px-1 cursor-pointer hover:bg-blockBg hover:text-mainText rounded"
+              className="w-[95%] p-2 shadow px-1 cursor-pointer hover:bg-gray-50 hover:text-mainText rounded"
               onClick={() => {
                 setSelectedValue(option);
                 if (onChange) {

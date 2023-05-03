@@ -4,11 +4,11 @@ import {Navigate} from "react-router-dom";
 
 export const publicRoutes: UtilsTypes.IRoutes[] = [
     {path: "/auth", element: <Auth/>},
-    {path: "/login", element: <Login/>},
-    {path: "/registration", element: <Registration/>}
+    // {path: "/login", element: <Login/>},
+    // {path: "/registration", element: <Registration/>}
 ]
 
-export const publicException: UtilsTypes.IRoutes = {path: "*", element: <Navigate to="/login"/>}
+export const publicException: UtilsTypes.IRoutes = {path: "*", element: <Navigate to="/auth"/>}
 
 export const authRoutes: UtilsTypes.IRoutes[] = [
     {path: "/main", element: <></>},

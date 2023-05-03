@@ -1,3 +1,5 @@
 :root {
     --transition-time: .3s;
+
+    --auth-slide-time: 1.25s
 }
