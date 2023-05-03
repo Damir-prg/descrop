@@ -7,8 +7,9 @@ import {AuthConst} from "../../consts";
 
 const Registration = () => {
     const [departments, setDepartments] = useState<string[]>(AuthConst.departments[0].departments)
-    const sortByGovernanceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const governanceIndex = Number(e.target.value)
+    // React.ChangeEvent<HTMLSelectElement>
+    const sortByGovernanceChange = (index: number) => {
+        const governanceIndex = index;
         setDepartments(AuthConst.departments[governanceIndex].departments)
     }
 
@@ -26,17 +27,13 @@ const Registration = () => {
                 <UI.Custom.RowInput type="text" placeholder="Введите пароль"/>
                 <UI.Custom.RowInput type="password" placeholder="Повторите пароль"/>
                 <div className="flex flex-row justify-between w-full">
-                    <UI.Custom.Select
+                    <UI.Custom.Select2
                         options={AuthConst.governance.map(el => el.title)}
                         placeholder="Выбрать управление"
                         onChange={sortByGovernanceChange}
 
                     />
-                    <UI.Custom.Select
-                        options={departments}
-                        placeholder="Выбрать отдел"
-
-                    />
+                    <UI.Custom.Select2 options={departments}/>
                 </div>
                 <span className="w-full text-left text-beige">Уже есть аккаунт?{" "}
                     <Link
