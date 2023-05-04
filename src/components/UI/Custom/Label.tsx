@@ -1,38 +1,50 @@
-import React, {FC} from 'react';
-import {UITypes} from "../../../types";
+import React, { FC } from "react";
+import { UITypes } from "../../../types";
 
+const Label: FC<UITypes.TCustomLabel> = ({
+  children,
+  isBlockLabel,
+  backgroundColor,
+  underline,
+  textColor,
+  textPosition,
+}) => {
+  const checkTextPos = (): string => {
+    switch (textPosition) {
+      case "left":
+        return "items-start";
+      case "center":
+        return "items-center";
+      case "right":
+        return "items-end ";
+      default:
+        return "items-start";
+    }
+  };
 
-const Label:FC<UITypes.TCustomLabel> = (
-    {
-     children,
-     isBlockLabel,
-     backgroundColor,
-     underline,
-     textColor,
-    }) => {
-
-    return (
-        <div
-            className={`
-            flex flex-col items-start justify-start gap-2
-            w-[80%] py-2 px-2
+  return (
+    <div
+      className={`
+            flex flex-col ${checkTextPos()} gap-2
+            w-full py-2 px-2
             bg-[#${backgroundColor ? backgroundColor : "secondBg"}] 
             text-[#${textColor ? textColor : "blockBg"}]
             ${isBlockLabel ? "rounded-lg" : ""}
+            custom__shadow-inner
             `}
-        >
-            <span className="font-bold">{children}</span>
-            {underline &&
-                <span
-                    className={`
+    >
+      <span className="font-bold">{children}</span>
+      {underline && (
+        <span
+          className={`
                     bg-[#${textColor ? textColor : "blockBg"}] 
                     rounded-[2px] 
                     w-full h-[2px]
                     `}
-                />
-            }
-        </div>
-    );
+        />
+      )}
+    </div>
+  );
 };
 
-export {Label};
+export { Label };
