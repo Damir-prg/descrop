@@ -1,6 +1,6 @@
 import React from "react";
 import ReactEcharts from "echarts-for-react";
-import {ChartConsts} from "../consts";
+import {ChartConsts} from "../../../consts";
 
 
 const option = {

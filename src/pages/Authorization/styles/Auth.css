@@ -14,7 +14,7 @@
     justify-content: center;
 
 
-    z-index: 2;
+    z-index: 1;
 
     transition: var(--auth-slide-time);
 }
@@ -29,7 +29,7 @@
 
 .auth-login-block {
     position: absolute;
-    z-index: 1;
+    z-index: 0;
     top: 0;
     left: 0;
     height: 100%;
@@ -55,7 +55,7 @@
 /* REGISTRATION BLOCK START*/
 .auth-reg-block {
     position: absolute;
-    z-index: 1;
+    z-index: 0;
     top: 0;
     right: 0;
     height: 100%;

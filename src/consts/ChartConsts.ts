@@ -6,7 +6,7 @@ export const data: ConstsTypes.TChartData[] = [
     {name: "Качество", max: 5},
     {name: "Коммуникабельность", max: 5},
     {name: "Знания технологий", max: 5},
-    {name: "Понимание проектов", max: 5},
+    {name: "Понимание ", max: 5},
 ]
 
 export const values: number[] = [5, 4, 3, 2, 1]

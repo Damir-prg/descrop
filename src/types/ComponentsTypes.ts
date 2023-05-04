@@ -2,7 +2,6 @@ import {IUser} from "./StoreTypes";
 
 
 export type TUserCard = {
-    textStyles: string;
     data: IUser;
 }
 

@@ -5,7 +5,7 @@ const MyTasks = () => {
     return (
         <div
             className="
-            w-[80%] h-fit
+            w-full h-fit
             p-2
             bg-secondBg
             rounded-lg

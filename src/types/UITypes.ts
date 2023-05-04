@@ -48,6 +48,7 @@ export type TCustomLabel = {
   textColor?: string;
   backgroundColor?: string;
   underline?: boolean;
+  textPosition?: "left" | "center" | "right";
 } & TChildren;
 
 export type TTaskItem = {
