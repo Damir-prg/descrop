@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node serverApp.js",
+    "nodemon-start": "nodemon serverApp.js"
   },
   "author": "Nasirov Damir",
   "license": "ISC",
@@ -18,5 +19,8 @@
     "node-postgres": "^0.6.2",
     "path": "^0.12.7",
     "pg": "^8.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
