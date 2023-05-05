@@ -14,3 +14,13 @@
 ### `npm start`
 
 в директории проекта
+
+## Скриншоты проекта
+
+### Страница авторизации
+
+![Image 1 alt](https://github.com/Damir-prg/descrop/raw/master/github-images/auth-page.png)
+
+###  Страница пользователя
+
+![Image 2 alt](https://github.com/Damir-prg/descrop/raw/master/github-images/user-page.png)
