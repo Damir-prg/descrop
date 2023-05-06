@@ -1,13 +1,20 @@
 import React, { useState } from "react";
-import { StartWrapper } from "layots";
-import {MainConsts} from "consts";
+import { useStore } from "effector-react";
 
+import { StartWrapper } from "layots";
+import { MainConsts } from "consts";
+import { AuthStore } from "stores";
+
+import { Loader } from "components";
 
 import { Login, Registration, ChangeBlock } from "./components";
 import "./styles/Auth.css";
 
 const Auth = () => {
+  const { isLoading } = useStore(AuthStore.$companyData);
   const [isChanged, setIsChanged] = useState(true);
+
+  if (isLoading) return <Loader.Large />;
 
   return (
     <StartWrapper cssProps={"py-10"}>
@@ -25,14 +32,13 @@ const Auth = () => {
         >
           <ChangeBlock change={setIsChanged} isChange={isChanged} />
         </div>
-        <div
+        <form
           className={`auth-login-block shadow-inner ${isChanged ? "" : "hide"}`}
         >
           <Login />
-        </div>
-        <div className={`auth-reg-block ${isChanged ? "hide" : ""}`}>
-          <Registration />
-        </div>
+        </form>
+
+        <Registration isChanged={isChanged}/>
       </div>
     </StartWrapper>
   );

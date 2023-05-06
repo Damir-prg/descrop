@@ -1,10 +1,13 @@
-const { Governance, Department } = require("../models/models");
+const { Governance, Department, Users } = require("../models/models");
 
 class AutorizationController {
 
   async getData(req, res) {
-    const data = { governance: [], department: [] };
+    const data = { governance: [], department: [], logins: [] };
     const governance = await Governance.findAll();
+
+    const users = await Users.findAll()
+    data.logins.push(...users.map(el => el.login))
     for (let i = 0; i < governance.length; i++) {
       const departments = await Department.findAll({
         where: {

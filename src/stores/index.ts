@@ -1,5 +1,5 @@
-import * as AuthStore from "./Auth"
-import * as UserStore from "./User";
+import * as AuthStore from "./AuthStore"
+import * as UserStore from "./UserStore";
 
 
 export {AuthStore, UserStore}

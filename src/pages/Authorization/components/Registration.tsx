@@ -1,68 +1,96 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
+import { ApiTypes } from "types";
 import { UI } from "components";
-import { AuthConst } from "consts";
+import { AuthStore } from "stores";
+import { isContains } from "helpers";
+import { getDepartment, getFormData, register } from "../helpers";
+import { useStore } from "effector-react";
 
-const Registration = () => {
-  const [departments, setDepartments] = useState<string[]>(
-    AuthConst.departments[0].departments
+const Registration: FC<{ isChanged: boolean }> = ({ isChanged }) => {
+  const { isLoading, governance, departments, logins } = useStore(
+    AuthStore.$companyData
   );
+  const [selectedGovernance, setSelectedGovernance] = useState<string>("");
+  const [selectedDepartment, setSelectedDepartment] = useState<string>("");
+  const [selectDepartments, setSelectDepartments] = useState<string[]>([]);
+  const [isRegistred, setIsRegistred] = useState<boolean>(false);
+
   // React.ChangeEvent<HTMLSelectElement>
-  const sortByGovernanceChange = (index: number) => {
-    setDepartments(AuthConst.departments[index].departments);
+  const handleGovernanceChange = (index: number) => {
+    const department = getDepartment(governance, departments, index);
+    setSelectDepartments(department);
+    setSelectedGovernance(governance[index].title);
   };
 
+  const handleDepartmentChange = (index: number) => {
+    setSelectedDepartment(selectDepartments[index]);
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const inputData = getFormData(event);
+    if (!isContains<string>(inputData.login, logins)) {
+      const formData: ApiTypes.TRegistrationForm = {
+        login: inputData.login,
+        initials: inputData.initials,
+        password: inputData.password,
+        governance: selectedGovernance,
+        department: selectedDepartment,
+      };
+      register(formData, setIsRegistred);
+    } else {
+      alert("Пользователь с таким логином уже существует");
+    }
+  };
+
+  if (isLoading) return <></>;
+
   return (
-    <>
+    <form
+      className={`auth-reg-block ${isChanged ? "hide" : ""}`}
+      onSubmit={(e) => handleSubmit(e)}
+    >
       <h1 className="text-orange font-[200] tracking-widest text-3xl">
         Регистрация
       </h1>
       <UI.Custom.RowInput
         type="text"
         placeholder="Введите логин"
-        required={true}
-      />
-      <div className="flex flex-row justify-between w-full gap-2">
-        <UI.Custom.RowInput
-          type="text"
-          placeholder="Введите фамилию"
-          required={true}
-        />
-        <UI.Custom.RowInput
-          type="text"
-          placeholder="Введите имя"
-          required={true}
-        />
-      </div>
-      <UI.Custom.RowInput
-        type="text"
-        placeholder="Введите отчество"
+        name="login"
         required={true}
       />
       <UI.Custom.RowInput
         type="text"
-        placeholder="Введите пароль"
-        required={true}
-      />
-      <UI.Custom.RowInput
-        type="password"
-        placeholder="Повторите пароль"
+        placeholder="Введите ФИО"
+        name="initials"
         required={true}
       />
       <div className="flex flex-row justify-between w-full gap-2">
         <UI.Custom.Select
-          options={AuthConst.governance.map((el) => el.title)}
+          options={governance.map((el) => el.title)}
           placeholder="Выбрать управление"
-          onChange={sortByGovernanceChange}
+          onChange={handleGovernanceChange}
         />
-        <UI.Custom.Select options={departments} />
+        <UI.Custom.Select
+          options={selectDepartments}
+          placeholder="Выбрать отдел"
+          onChange={handleDepartmentChange}
+        />
       </div>
+      <UI.Custom.RowInput
+        type="password"
+        placeholder="Введите пароль"
+        name="password"
+        required={true}
+      />
       <UI.Custom.ButtonAction
-        type="button"
-        title="Отправить данные на проверку и войти"
+        type="submit"
+        title="отправить данные на регистрацию"
       >
         Зарегистрироваться
       </UI.Custom.ButtonAction>
-    </>
+      {isRegistred && <h4>Регистрация прошла успешно!</h4>}
+    </form>
   );
 };
 

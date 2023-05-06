@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 
 
 type TCustomSelect = {
@@ -14,8 +14,13 @@ const Select: React.FC<TCustomSelect> = ({
   options,
   onChange,
 }) => {
-  const [selectedValue, setSelectedValue] = useState<string>(options[0]);
+  const [selectedValue, setSelectedValue] = useState<string>(placeholder);
   const [isActive, setIsActive] = useState<boolean>(false);
+
+  useEffect(() => {
+    setSelectedValue(options[0])
+  }, [options]);
+
 
   return (
     <div className={`${width} h-10 relative`} >
@@ -52,6 +57,7 @@ const Select: React.FC<TCustomSelect> = ({
         >
           {options.map((option, index) => (
             <li
+              key={option}
               className="w-[95%] p-2 shadow px-1 cursor-pointer hover:bg-gray-50 hover:text-mainText rounded"
               onClick={() => {
                 setSelectedValue(option);

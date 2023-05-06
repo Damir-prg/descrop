@@ -1,7 +1,7 @@
-import {ConstsTypes} from "../types";
+import {BaseTypes} from "../types";
 
 
-export const governance: ConstsTypes.TGovernance[] = [
+export const governance: BaseTypes.TGovernance[] = [
     {title:"Информационное сопровождение систем основного производства", key: 1},
     {title: "Дирекция", key: 2},
     {title: "Центр развития", key:3},
@@ -11,7 +11,7 @@ export const governance: ConstsTypes.TGovernance[] = [
     {title: "Управление информационно-технической поддержки ИТ решений", key: 7}
 ]
 
-export const departments: ConstsTypes.TDepartments[] = [
+export const departments: BaseTypes.TDepartments[] = [
     {governanceKey: 1, departments: [
         "Отдел информационного сопровождения"
         ]},
