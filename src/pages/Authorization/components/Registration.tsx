@@ -66,6 +66,7 @@ const Registration: FC<{ isChanged: boolean }> = ({ isChanged }) => {
         required={true}
       />
       <div className="flex flex-row justify-between w-full gap-2">
+        {/* TODO Не меняется селект управления*/}
         <UI.Custom.Select
           options={governance.map((el) => el.title)}
           placeholder="Выбрать управление"
