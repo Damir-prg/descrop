@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { UI } from "components";
 import { getDepartment } from "helpers";
-
+import { updateUserInfo } from "../helpers";
 import { StoreTypes, ComponentsTypes } from "types";
 import { UserStore, AuthStore } from "stores";
 import { useStore } from "effector-react";
@@ -11,7 +11,7 @@ const NewUserInfoForm: FC<ComponentsTypes.TNewUserInfoFrom> = ({
   closeModal,
 }) => {
   const { governance, departments } = useStore(AuthStore.$companyData);
-  const [data, setData] = useState<StoreTypes.IUser>(prevData);
+  const [data, setData] = useState<StoreTypes.IUser>();
   const [selectedDepartments, setSelectedDepartments] = useState<Array<string>>(
     []
   );
@@ -38,14 +38,16 @@ const NewUserInfoForm: FC<ComponentsTypes.TNewUserInfoFrom> = ({
       initials: formData.get("initials") as string,
       governance: governance[governanceIndex].title,
       department: selectedDepartments[departmentsIndex],
-      commandName: formData.get("commandName") as string,
       jobTitle: formData.get("jobTitle") as string,
       phone: formData.get("phone") as string,
     });
   };
 
   useEffect(() => {
-    UserStore.setNewUserinfo(data);
+    if (data) {
+      UserStore.setNewUserinfo(data);
+      updateUserInfo(data);
+    }
   }, [data]);
 
   return (
@@ -71,12 +73,6 @@ const NewUserInfoForm: FC<ComponentsTypes.TNewUserInfoFrom> = ({
           onChange={handleDepartmentChange}
         />
       </div>
-      <UI.Custom.RowInput
-        type="text"
-        placeholder="Команда"
-        name="commandName"
-        required={true}
-      />
       <UI.Custom.RowInput
         type="text"
         placeholder="Должность"

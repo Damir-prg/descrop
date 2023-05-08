@@ -41,3 +41,12 @@ export interface TCommandUpdate {
 export interface TCommandGetOne {
   commandId: number;
 }
+
+export interface TUserUpdateInfo {
+  id: number;
+  initials: string;
+  governance: string;
+  department: string;
+  jobTitle: string;
+  phone: string | null;
+}

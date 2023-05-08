@@ -53,6 +53,7 @@ const CreateCommandForm = () => {
         {selectedUsers.length !== 0 &&
           selectedUsers.map((id) => (
             <div
+              key={Math.random()}
               className="
             flex flex-row flex-nowrap p-2 bg-tnGreen rounded-xl
             justify-between items-center gap-3 w-fit text-white"
