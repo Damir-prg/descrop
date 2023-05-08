@@ -1,4 +1,4 @@
-import {TDepartments, TGovernance} from "./BaseTypes";
+import { TDepartments, TGovernance } from "./BaseTypes";
 
 export interface TAuthGetAll {
   governance: Array<TGovernance>;
@@ -12,4 +12,14 @@ export interface TRegistrationForm {
   password: string;
   governance: string;
   department: string;
+}
+
+export interface TLoginPutData {
+  login: string;
+  password: string;
+}
+
+export interface TLoginPromise {
+  result: boolean;
+  userId: number
 }

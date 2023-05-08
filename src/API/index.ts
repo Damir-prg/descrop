@@ -1,1 +1,2 @@
-export * from "./autorizationAPI"
+export * from "./autorizationAPI";
+export * from "./userAPI";

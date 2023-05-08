@@ -12,4 +12,8 @@ export const autorizationApi = {
     const res = await customAxios.post("user/", data);
     return res.data;
   },
+  login: async (data: ApiTypes.TLoginPutData): Promise<ApiTypes.TLoginPromise> => {
+    const res = await customAxios.put("user/", data)
+    return res.data;
+  }
 };

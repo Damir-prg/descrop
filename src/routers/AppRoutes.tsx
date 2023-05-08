@@ -7,6 +7,7 @@ import {MainHeader} from "../components";
 import {useEffect} from "react";
 
 
+
 const AppRoutes = () => {
     // Получение начального значение аутенфикации [false]
     const status = useStore(AuthStore.$authStatus);
@@ -14,6 +15,7 @@ const AppRoutes = () => {
     useEffect(() => {
         AuthStore.getCompanyDataFx()
     }, []);
+
     
 
     return (

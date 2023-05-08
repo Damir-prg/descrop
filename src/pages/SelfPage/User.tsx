@@ -1,6 +1,6 @@
 import { UserStore } from "stores";
 import { useStore } from "effector-react";
-import { UI, forms } from "components";
+import { UI, forms, Loader } from "components";
 import {
   UserCard,
   UserChart,
@@ -12,8 +12,12 @@ import {
 import React, { useState } from "react";
 
 const User = () => {
-  const userData = useStore(UserStore.$userInfo);
+  const { isLoading, userData } = useStore(UserStore.$userInfo);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  if (isLoading) return <Loader.Large />;
+
+
   return (
     <div className="w-full h-full flex flex-col align-top justify-items-start py-6 px-6 gap-5">
       <div className="grid grid-cols-2 grid gap-5 w-full">
@@ -25,14 +29,14 @@ const User = () => {
         </div>
         <div className="w-full flex items-center flex-col">
           <UI.Custom.Label isBlockLabel={true}>Профиль</UI.Custom.Label>
-          <UserCard data={userData} />
+          {userData && <UserCard data={userData} />}
           <UI.Custom.Label isBlockLabel={true}>
             Данные о месте работы
           </UI.Custom.Label>
           <UserJobInfo />
           <UI.Custom.ButtonAction
             type={"button"}
-            onClick={(e) => setIsModalOpen(true)}
+            onClick={() => setIsModalOpen(true)}
           >
             Редактировать
           </UI.Custom.ButtonAction>
@@ -50,7 +54,12 @@ const User = () => {
 
       {/*  MODAL */}
       <UI.ModalWrapper isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
-        <forms.NewUserInfoForm prevData={userData} closeModal={setIsModalOpen}/>
+        {userData && (
+          <forms.NewUserInfoForm
+            prevData={userData}
+            closeModal={setIsModalOpen}
+          />
+        )}
       </UI.ModalWrapper>
     </div>
   );

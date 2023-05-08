@@ -12,12 +12,23 @@ class UserController {
         department,
       });
       return res.json(user);
-    } else res.json(null)
+    } else res.json(null);
   }
 
   async getAll(req, res) {
     const users = await Users.findAll();
-    return res.json(users)
+    return res.json(users);
+  }
+
+  async getOne(req, res) {
+    const { id } = req.body;
+    const user = await Users.findOne({
+      where: {
+        id: id,
+      },
+    });
+
+    return res.json(user)
   }
 
   async login(req, res) {
@@ -29,11 +40,10 @@ class UserController {
       },
     });
     if (user) {
-      return res.json({result: true});
+      return res.json({ result: true, userId: user.id });
     } else {
-      return res.json({result: false});
+      return res.json({ result: false, userId: -1 });
     }
-
   }
 }
 
