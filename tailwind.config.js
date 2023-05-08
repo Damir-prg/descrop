@@ -16,6 +16,7 @@ module.exports = {
       gridTemplateColumns: {
         "my-task-user": "1fr 3fr 1fr 1fr",
         "my-task-other": "1fr 3fr 1fr 1fr 1fr",
+        "command-table": "3fr 3fr 3fr 1fr",
       }
     },
   },

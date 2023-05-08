@@ -3,3 +3,8 @@
     -moz-box-shadow: 0 0 6px 1px rgba(34, 60, 80, 0.2) inset;
     box-shadow: 0 0 6px 1px rgba(34, 60, 80, 0.2) inset;
 }
+
+.custom__max-height {
+    height: 100vh;
+    min-height: 100% !important;
+}

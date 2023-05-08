@@ -20,3 +20,18 @@ export type TTitle = {
 export type TChildren = {
     children: ReactNode;
 }
+
+export type TGovernance = {
+    title: string;
+    key: number;
+}
+
+type TDepartment = {
+    name: string,
+    id: number
+}
+
+export type TDepartments = {
+    governanceKey: number;
+    departments: Array<TDepartment>;
+}

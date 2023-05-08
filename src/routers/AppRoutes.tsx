@@ -4,11 +4,19 @@ import {useStore} from "effector-react";
 import {AuthStore} from "../stores";
 import {StartWrapper} from "../layots";
 import {MainHeader} from "../components";
+import {useEffect} from "react";
+
 
 
 const AppRoutes = () => {
     // Получение начального значение аутенфикации [false]
     const status = useStore(AuthStore.$authStatus);
+
+    useEffect(() => {
+        AuthStore.getCompanyDataFx()
+    }, []);
+
+    
 
     return (
         <main className="flex min-h-screen min-w-full relative bg-mainBg">

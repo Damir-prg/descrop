@@ -28,9 +28,9 @@ const UserCard: FC<ComponentsTypes.TUserCard> = ({ data }) => {
       </div>
       <div className="flex flex-col justify-center h-full gap-2">
         {mockInitials.map((init, index) => (
-          <UI.RowWithProps type="text" title={mockTitles[index]} body={init} />
+          <UI.RowWithProps type="text" title={mockTitles[index]} body={init} key={Math.random()}/>
         ))}
-        <UI.RowWithProps type={"phone"} body={data.phone} title={"Телефон"} />
+        {data.phone && <UI.RowWithProps type={"phone"} body={data.phone} title={"Телефон"} />}
       </div>
     </div>
   );
