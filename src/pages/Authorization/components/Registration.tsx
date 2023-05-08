@@ -2,8 +2,8 @@ import React, { FC, useState } from "react";
 import { ApiTypes } from "types";
 import { UI } from "components";
 import { AuthStore } from "stores";
-import { isContains } from "helpers";
-import { getDepartment, getFormData, register } from "../helpers";
+import { isContains, getDepartment } from "helpers";
+import { getFormData, register } from "../helpers";
 import { useStore } from "effector-react";
 
 const Registration: FC<{ isChanged: boolean }> = ({ isChanged }) => {

@@ -21,5 +21,23 @@ export interface TLoginPutData {
 
 export interface TLoginPromise {
   result: boolean;
-  userId: number
+  userId: number;
+}
+
+export interface TCommandCreate {
+  name: string;
+  description: string;
+  departmentId: number;
+  managerUserId: number;
+  userIds: Array<number>;
+}
+
+export interface TCommandUpdate {
+  userIds: Array<number>;
+  taskIds: Array<number>;
+  commandId: number;
+}
+
+export interface TCommandGetOne {
+  commandId: number;
 }

@@ -1,12 +1,13 @@
 import { UserStore } from "stores";
 import { useStore } from "effector-react";
-import { UI, forms, Loader } from "components";
+import { UI, Loader } from "components";
 import {
   UserCard,
   UserChart,
   UserJobInfo,
   UserNumberCharacter,
   UserChartAxis,
+  NewUserInfoForm
 } from "./components";
 
 import React, { useState } from "react";
@@ -17,7 +18,6 @@ const User = () => {
 
   if (isLoading) return <Loader.Large />;
 
-
   return (
     <div className="w-full h-full flex flex-col align-top justify-items-start py-6 px-6 gap-5">
       <div className="grid grid-cols-2 grid gap-5 w-full">
@@ -25,7 +25,18 @@ const User = () => {
           <UI.Custom.Label isBlockLabel={true}>
             Диаграмма краткой характеристики
           </UI.Custom.Label>
-          <UserChart size={400} />
+          {userData && (
+            <UserChart
+              size={400}
+              options={[
+                userData.speed,
+                userData.quality,
+                userData.sociability,
+                userData.knowledge,
+                userData.understanding,
+              ]}
+            />
+          )}
         </div>
         <div className="w-full flex items-center flex-col">
           <UI.Custom.Label isBlockLabel={true}>Профиль</UI.Custom.Label>
@@ -55,7 +66,7 @@ const User = () => {
       {/*  MODAL */}
       <UI.ModalWrapper isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
         {userData && (
-          <forms.NewUserInfoForm
+          <NewUserInfoForm
             prevData={userData}
             closeModal={setIsModalOpen}
           />

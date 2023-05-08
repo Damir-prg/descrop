@@ -15,10 +15,11 @@ const Login = () => {
   const authCheck = async () => {
     const res = await autorizationApi.login({ login, password });
     if (res.result) {
-      UserStore.getUserDataFx({id: res.userId})
+      await UserStore.getUserDataFx({ id: res.userId });
+      await UserStore.getAllUsersDataFx();
       AuthStore.changeStatus();
     } else {
-      alert("Неправильный логин или пароль")
+      alert("Неправильный логин или пароль");
     }
   };
 

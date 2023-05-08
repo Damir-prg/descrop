@@ -17,6 +17,11 @@ const Users = sequelize.define("users", {
   commandName: { type: DataTypes.STRING, defaultValue: null },
   phone: { type: DataTypes.STRING, unique: true, defaultValue: null },
   commandId: { type: DataTypes.INTEGER, defaultValue: null },
+  speed: {type: DataTypes.INTEGER, defaultValue: 3},
+  quality: {type: DataTypes.INTEGER, defaultValue: 3},
+  understanding: {type: DataTypes.INTEGER, defaultValue: 3},
+  sociability: {type: DataTypes.INTEGER, defaultValue: 3},
+  knowledge: {type: DataTypes.INTEGER, defaultValue: 3},
 });
 
 const Tasks = sequelize.define("tasks", {
@@ -37,9 +42,10 @@ const Command = sequelize.define("command", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   name: { type: DataTypes.STRING },
   description: { type: DataTypes.STRING },
-  userIds: { type: DataTypes.ARRAY(DataTypes.INTEGER), defaultValue: [] },
+  departmentId: {type: DataTypes.INTEGER},
   managerUserId: { type: DataTypes.INTEGER },
-  taskIds: { type: DataTypes.ARRAY(DataTypes.INTEGER) },
+  userIds: { type: DataTypes.ARRAY(DataTypes.INTEGER), defaultValue: [] },
+  taskIds: { type: DataTypes.ARRAY(DataTypes.INTEGER), defaultValue: [] },
 });
 
 const Department = sequelize.define("department", {

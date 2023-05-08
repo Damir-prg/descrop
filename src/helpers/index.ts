@@ -1,1 +1,2 @@
-export * from "./lodashes"
+export * from "./lodashes";
+export * from "./AuthHelper";

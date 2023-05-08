@@ -1,25 +1,29 @@
 import React, { FC, useEffect, useState } from "react";
-import { UI } from "../index";
-import { StoreTypes, ComponentsTypes } from "../../types";
-import { UserStore } from "../../stores";
-import { AuthConst } from "../../consts";
+import { UI } from "components";
+import { getDepartment } from "helpers";
+
+import { StoreTypes, ComponentsTypes } from "types";
+import { UserStore, AuthStore } from "stores";
+import { useStore } from "effector-react";
 
 const NewUserInfoForm: FC<ComponentsTypes.TNewUserInfoFrom> = ({
   prevData,
   closeModal,
 }) => {
+  const { governance, departments } = useStore(AuthStore.$companyData);
   const [data, setData] = useState<StoreTypes.IUser>(prevData);
-  const [departments, setDepartments] = useState<string[]>(
-    AuthConst.departments[0].departments
+  const [selectedDepartments, setSelectedDepartments] = useState<Array<string>>(
+    []
   );
   const [governanceIndex, setGovernanceIndex] = useState<number>(0);
   const [departmentsIndex, setDepartmentsIndex] = useState<number>(0);
 
   // React.ChangeEvent<HTMLSelectElement>
   const handleGovernanceChange = (index: number) => {
-    const governanceIndex = index;
-    setGovernanceIndex(governanceIndex);
-    setDepartments(AuthConst.departments[governanceIndex].departments);
+    setGovernanceIndex(index);
+    const department = getDepartment(governance, departments, index);
+
+    setSelectedDepartments(department);
   };
 
   const handleDepartmentChange = (index: number) => {
@@ -32,8 +36,8 @@ const NewUserInfoForm: FC<ComponentsTypes.TNewUserInfoFrom> = ({
     setData({
       ...prevData,
       initials: formData.get("initials") as string,
-      governance: AuthConst.governance[governanceIndex].title,
-      department: departments[departmentsIndex],
+      governance: governance[governanceIndex].title,
+      department: selectedDepartments[departmentsIndex],
       commandName: formData.get("commandName") as string,
       jobTitle: formData.get("jobTitle") as string,
       phone: formData.get("phone") as string,
@@ -58,12 +62,12 @@ const NewUserInfoForm: FC<ComponentsTypes.TNewUserInfoFrom> = ({
       />
       <div className="flex flex-row justify-between w-full gap-2">
         <UI.Custom.Select
-          options={AuthConst.governance.map((el) => el.title)}
+          options={governance.map((el) => el.title)}
           placeholder="Выбрать управление"
           onChange={handleGovernanceChange}
         />
         <UI.Custom.Select
-          options={departments}
+          options={selectedDepartments}
           onChange={handleDepartmentChange}
         />
       </div>
@@ -88,7 +92,10 @@ const NewUserInfoForm: FC<ComponentsTypes.TNewUserInfoFrom> = ({
       <div className={"flex flex-row gap-6 pt-2"}>
         <UI.Custom.ButtonAction type="submit">Изменить</UI.Custom.ButtonAction>
         {closeModal && (
-          <UI.Custom.ButtonAction type={"button"} onClick={(e) => closeModal(false)}>
+          <UI.Custom.ButtonAction
+            type={"button"}
+            onClick={() => closeModal(false)}
+          >
             Закрыть
           </UI.Custom.ButtonAction>
         )}

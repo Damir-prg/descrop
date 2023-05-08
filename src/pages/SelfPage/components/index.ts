@@ -3,6 +3,7 @@ import {UserChart} from "./UserChart";
 import {UserJobInfo} from "./UserJobInfo";
 import {UserNumberCharacter} from "./UserNumberCharacter";
 import {UserChartAxis} from "./UserChartAxis";
+import {NewUserInfoForm} from "./NewUserInfoForm";
 
 
 export {
@@ -10,5 +11,6 @@ export {
   UserChart,
   UserJobInfo,
   UserNumberCharacter,
-  UserChartAxis
+  UserChartAxis,
+  NewUserInfoForm
 }

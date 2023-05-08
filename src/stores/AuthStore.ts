@@ -10,10 +10,12 @@ export const getCompanyDataFx = createEffect<void, ApiTypes.TAuthGetAll, Error>(
   }
 );
 
+export const addLogin = createEvent<string>()
+
 const $logins = createStore<Array<string>>([]).on(
   getCompanyDataFx.doneData,
   (_, payload) => payload.logins
-)
+).on(addLogin, (store, payload) => [...store, payload])
 
 const $governance = createStore<Array<BaseTypes.TGovernance>>([]).on(
   getCompanyDataFx.doneData,

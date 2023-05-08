@@ -22,7 +22,7 @@ class AutorizationController {
       if (departments.length > 0) {
         data.department.push({
           governanceKey: governance[i].id,
-          departments: departments.map((el) => el.name),
+          departments: departments.map((el) => {return {name: el.name, id: el.id}}),
         });
       } else {
         data.department.push({

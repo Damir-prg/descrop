@@ -26,7 +26,12 @@ export type TGovernance = {
     key: number;
 }
 
+type TDepartment = {
+    name: string,
+    id: number
+}
+
 export type TDepartments = {
     governanceKey: number;
-    departments: string[];
+    departments: Array<TDepartment>;
 }

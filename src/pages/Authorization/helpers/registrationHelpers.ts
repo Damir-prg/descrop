@@ -1,20 +1,8 @@
-import {ApiTypes, BaseTypes} from "types";
+import {ApiTypes} from "types";
 import React from "react";
+import {AuthStore} from "stores";
 import {autorizationApi} from "../../../API";
 
-
-const getDepartment = (
-  governance: Array<BaseTypes.TGovernance>,
-  departments: Array<BaseTypes.TDepartments>,
-  index: number
-): Array<string> => {
-  const department = departments.find(
-    (el) => el.governanceKey === governance[index].key
-  );
-
-  if (department) return department.departments
-  return []
-};
 
 const getFormData = (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault()
@@ -31,9 +19,10 @@ const register = async (data: ApiTypes.TRegistrationForm, setIsRegistred: (bool:
   const res = await autorizationApi.registration(data);
   if (res != null) {
     setIsRegistred(true);
+    AuthStore.addLogin(data.login)
   } else {
     alert("Ошибка при регистрации, попробуйте позже :(");
   }
 };
 
-export {getDepartment, getFormData, register}
+export {getFormData, register}

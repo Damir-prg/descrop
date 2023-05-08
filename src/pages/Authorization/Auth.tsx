@@ -17,7 +17,7 @@ const Auth = () => {
   if (isLoading) return <Loader.Large />;
 
   return (
-    <StartWrapper cssProps={"py-10"}>
+    <StartWrapper cssProps={"py-10 custom__max-height"}>
       <h3
         className="
         text-3xl text-text custom__shadow-inner py-3
