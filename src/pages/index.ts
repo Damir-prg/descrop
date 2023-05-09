@@ -1,4 +1,5 @@
 import {Auth} from "./Authorization/Auth";
+import {CommandsPage} from "./Commands/CommandsPage";
 
 import {Main} from "./Main/Main"
 import {User} from "./SelfPage/User"
@@ -9,5 +10,6 @@ export {
     Auth,
     Main,
     User,
-    Tasks
+    Tasks,
+    CommandsPage
 }

@@ -1,4 +1,5 @@
-import React, { useState, useEffect} from "react";
+import React, { useState} from "react";
+import {ArrowIcon} from "assets";
 
 
 type TCustomSelect = {
@@ -17,10 +18,6 @@ const Select: React.FC<TCustomSelect> = ({
   const [selectedValue, setSelectedValue] = useState<string>(placeholder);
   const [isActive, setIsActive] = useState<boolean>(false);
 
-  useEffect(() => {
-    setSelectedValue(options.length !== 0 ? options[0] : placeholder)
-  }, []);
-
 
   return (
     <div className={`${width} h-10 relative`} >
@@ -35,20 +32,7 @@ const Select: React.FC<TCustomSelect> = ({
           onClick={() => setIsActive(!isActive)}
         >
           <span title={selectedValue} className={"pr-[20px]"}>{selectedValue}</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className={`absolute top-[6px] right-[8px] w-6 h-6 transition-[0.3s] ${
-              isActive ? "-rotate-180" : ""
-            }`}
-          >
-            <path
-              fillRule="evenodd"
-              d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
-              clipRule="evenodd"
-            />
-          </svg>
+          <ArrowIcon isActive={isActive} cssProps={"absolute top-[6px] right-[8px]"}/>
         </div>
         <ul
           className={`w-full overflow-auto transition-[0.3s] ${

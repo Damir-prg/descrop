@@ -1,7 +1,11 @@
 import {ReactNode} from "react";
 
-export interface IRoutes {
+interface IBaseRoute {
     path: string;
     element: ReactNode;
+}
+
+export interface IRoutes extends IBaseRoute{
     exact?: boolean;
+    children?: Array<IRoutes>
 }
