@@ -1,5 +1,5 @@
 import React from 'react';
-import {UITypes} from "../../types";
+import {UITypes} from "types";
 
 
 const TaskItem = ({title, isBold}: UITypes.TTaskItem) => {
