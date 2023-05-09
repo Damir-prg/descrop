@@ -22,6 +22,7 @@ const Main = () => {
       </UI.Custom.Label>
       {governance.map((el) => (
         <Governances
+          key={Math.random()}
           governance={el}
           departments={
             departments.filter((dEl) => dEl.governanceKey === el.key)[0]
