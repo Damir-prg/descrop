@@ -18,8 +18,8 @@ const Select: React.FC<TCustomSelect> = ({
   const [isActive, setIsActive] = useState<boolean>(false);
 
   useEffect(() => {
-    setSelectedValue(options[0])
-  }, [options]);
+    setSelectedValue(options.length !== 0 ? options[0] : placeholder)
+  }, []);
 
 
   return (

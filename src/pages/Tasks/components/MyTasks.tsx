@@ -1,5 +1,5 @@
 import React from 'react';
-import {UI} from "./index";
+import {TaskItem} from "./UI";
 
 const MyTasks = () => {
     return (
@@ -13,17 +13,17 @@ const MyTasks = () => {
             "
         >
         <div className="grid grid-cols-my-task-user w-[100%] border-b-[1px] border-mainText">
-            <UI.TaskItem title={"Заголовок"} isBold={true}/>
-            <UI.TaskItem title={"Описание"} isBold={true}/>
-            <UI.TaskItem title={"Сроки"} isBold={true}/>
-            <UI.TaskItem title={"Сложность"} isBold={true}/>
+            <TaskItem title={"Заголовок"} isBold={true}/>
+            <TaskItem title={"Описание"} isBold={true}/>
+            <TaskItem title={"Сроки"} isBold={true}/>
+            <TaskItem title={"Сложность"} isBold={true}/>
         </div>
             {new Array(10).fill("").map(() => (
                 <div key={Math.random()} className="grid grid-cols-my-task-user w-[100%] border-b-[1px] border-mainText">
-                    <UI.TaskItem title={"Word"}/>
-                    <UI.TaskItem title={"Написать отчет"}/>
-                    <UI.TaskItem title={"3 дня"}/>
-                    <UI.TaskItem title={"Средняя"}/>
+                    <TaskItem title={"Word"}/>
+                    <TaskItem title={"Написать отчет"}/>
+                    <TaskItem title={"3 дня"}/>
+                    <TaskItem title={"Средняя"}/>
                 </div>
             ))}
         </div>

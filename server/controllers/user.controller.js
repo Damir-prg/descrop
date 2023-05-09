@@ -1,4 +1,5 @@
-const { Users } = require("../models/models");
+const { Users, Command } = require("../models/models");
+const {Op}                 = require("sequelize")
 
 class UserController {
   async create(req, res) {
@@ -28,7 +29,7 @@ class UserController {
       },
     });
 
-    return res.json(user)
+    return res.json(user);
   }
 
   async login(req, res) {
@@ -43,6 +44,44 @@ class UserController {
       return res.json({ result: true, userId: user.id });
     } else {
       return res.json({ result: false, userId: -1 });
+    }
+  }
+
+  async updateInfo(req, res) {
+    const { id, initials, governance, department, jobTitle, phone } = req.body;
+
+    if (id && initials && governance && department && jobTitle && phone) {
+      const commands = await Command.findAll({
+        where: {
+          userIds: {
+            [Op.contains]: [id]
+          },
+        },
+      });
+      const user = await Users.update(
+        {
+          initials: initials,
+          governance: governance,
+          department: department,
+          jobTitle: jobTitle,
+          commandName: commands.map((el) => el.name).join(","),
+          phone: phone,
+          commandId: commands.map((el) => el.id).join(","),
+        },
+        { where: { id: id } }
+      );
+      console.log(
+        initials,
+        governance,
+        department,
+        jobTitle,
+        commands.map((el) => el.name).join(","),
+        phone,
+        commands.map((el) => el.id).join(",")
+      );
+      return res.json(user);
+    } else {
+      res.json(null);
     }
   }
 }

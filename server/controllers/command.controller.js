@@ -1,16 +1,24 @@
-const {Command}      = require("../models/models")
+const { Command, Department } = require("../models/models");
 
 class CommandController {
   async create(req, res) {
-    const { name, description, departmentId, managerUserId, userIds } = req.body;
+    const { name, description, departmentId, managerUserId, userIds } =
+      req.body;
     if (name && description && departmentId && managerUserId && userIds) {
       const command = await Command.create({
         name,
         description,
         departmentId,
         managerUserId,
-        userIds
+        userIds,
       });
+      const department = await Department.findOne({
+        where: { id: departmentId },
+      });
+      await Department.update(
+        { commandIds: [...department.commandIds, command.id] },
+        { where: { id: departmentId } }
+      );
       return res.json(command);
     } else res.json(null);
   }
@@ -27,7 +35,7 @@ class CommandController {
         { where: { id: commandId } }
       );
       return res.json(updatedCommand);
-    } else return res.json(req.body)
+    } else return res.json(req.body);
   }
 
   async getAll(req, res) {
@@ -40,7 +48,6 @@ class CommandController {
     const command = await Command.findOne({ where: { id: commandId } });
     return res.json(command);
   }
-
 }
 
 module.exports = new CommandController();

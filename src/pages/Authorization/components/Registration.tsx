@@ -14,6 +14,7 @@ const Registration: FC<{ isChanged: boolean }> = ({ isChanged }) => {
   const [selectedDepartment, setSelectedDepartment] = useState<string>("");
   const [selectDepartments, setSelectDepartments] = useState<string[]>([]);
   const [isRegistred, setIsRegistred] = useState<boolean>(false);
+  const governanceTitles = governance.map((el) => el.title)
 
   // React.ChangeEvent<HTMLSelectElement>
   const handleGovernanceChange = (index: number) => {
@@ -66,9 +67,8 @@ const Registration: FC<{ isChanged: boolean }> = ({ isChanged }) => {
         required={true}
       />
       <div className="flex flex-row justify-between w-full gap-2">
-        {/* TODO Не меняется селект управления*/}
         <UI.Custom.Select
-          options={governance.map((el) => el.title)}
+          options={governanceTitles}
           placeholder="Выбрать управление"
           onChange={handleGovernanceChange}
         />
