@@ -8,7 +8,7 @@ const Governances = (props: {
   governance: BaseTypes.TGovernance;
   departments: BaseTypes.TDepartments;
 }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <div className="flex flex-col w-full custom__shadow-inner rounded-xl p-2.5">
