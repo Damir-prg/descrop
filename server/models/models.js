@@ -17,32 +17,34 @@ const Users = sequelize.define("users", {
   commandName: { type: DataTypes.STRING, defaultValue: null },
   phone: { type: DataTypes.STRING, unique: true, defaultValue: null },
   commandId: { type: DataTypes.INTEGER, defaultValue: null },
-  speed: {type: DataTypes.INTEGER, defaultValue: 3},
-  quality: {type: DataTypes.INTEGER, defaultValue: 3},
-  understanding: {type: DataTypes.INTEGER, defaultValue: 3},
-  sociability: {type: DataTypes.INTEGER, defaultValue: 3},
-  knowledge: {type: DataTypes.INTEGER, defaultValue: 3},
+  speed: { type: DataTypes.INTEGER, defaultValue: 3 },
+  quality: { type: DataTypes.INTEGER, defaultValue: 3 },
+  understanding: { type: DataTypes.INTEGER, defaultValue: 3 },
+  sociability: { type: DataTypes.INTEGER, defaultValue: 3 },
+  knowledge: { type: DataTypes.INTEGER, defaultValue: 3 },
 });
 
 const Tasks = sequelize.define("tasks", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   isActive: { type: DataTypes.BOOLEAN, defaultValue: true },
+  type: { type: DataTypes.INTEGER },
   title: { type: DataTypes.STRING },
   description: { type: DataTypes.STRING },
   timeToEnd: { type: DataTypes.INTEGER },
+  timeEnded: { type: DataTypes.INTEGER, defaultValue: null },
   taskManagerId: { type: DataTypes.INTEGER, defaultValue: null },
   taskExecuterIds: {
     type: DataTypes.ARRAY(DataTypes.INTEGER),
     defaultValue: [],
   },
-  commandId: { type: DataTypes.INTEGER },
+  commandId: { type: DataTypes.INTEGER, defaultValue: null },
 });
 
 const Command = sequelize.define("command", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   name: { type: DataTypes.STRING },
   description: { type: DataTypes.STRING },
-  departmentId: {type: DataTypes.INTEGER},
+  departmentId: { type: DataTypes.INTEGER },
   managerUserId: { type: DataTypes.INTEGER },
   userIds: { type: DataTypes.ARRAY(DataTypes.INTEGER), defaultValue: [] },
   taskIds: { type: DataTypes.ARRAY(DataTypes.INTEGER), defaultValue: [] },
@@ -50,7 +52,7 @@ const Command = sequelize.define("command", {
 
 const Department = sequelize.define("department", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  governanceId: {type: DataTypes.INTEGER},
+  governanceId: { type: DataTypes.INTEGER },
   name: { type: DataTypes.STRING },
   commandIds: { type: DataTypes.ARRAY(DataTypes.INTEGER), defaultValue: [] },
 });

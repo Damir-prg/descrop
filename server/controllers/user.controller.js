@@ -1,5 +1,5 @@
 const { Users, Command } = require("../models/models");
-const {Op}                 = require("sequelize")
+const { Op } = require("sequelize");
 
 class UserController {
   async create(req, res) {
@@ -54,7 +54,7 @@ class UserController {
       const commands = await Command.findAll({
         where: {
           userIds: {
-            [Op.contains]: [id]
+            [Op.contains]: [id],
           },
         },
       });

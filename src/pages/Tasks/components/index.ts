@@ -1,3 +1,5 @@
 import {MyTasks} from "./MyTasks";
+import {Tile} from "./Tile";
 
-export {MyTasks}
+
+export {MyTasks, Tile}
