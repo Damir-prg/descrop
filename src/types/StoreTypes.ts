@@ -46,3 +46,24 @@ export interface ITask extends ISequelize {
   taskExecuterIds: Array<number>;
   commandId: number | null;
 }
+
+export type TFixedWork = {
+  taskId: number;
+  name: string;
+  time: number;
+};
+
+export interface ITaskMock {
+  id: number;
+  name: string;
+  description: string;
+  executerName: string;
+  timeToEnd: number;
+  fixedworks: Array<TFixedWork>;
+  passedTime: number;
+  status: "Выполняется" | "Не начата" | "Приостановлена";
+  type: "gov" | "dep" | "com" | "self";
+  isActive: boolean;
+  commandId?: number;
+  departmentId?: number;
+}

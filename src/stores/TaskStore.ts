@@ -1,60 +1,55 @@
-import { combine, createEffect, createStore } from "effector";
-import { taskApi } from "API";
-import { StoreTypes, ApiTypes } from "types";
+import { createEvent, createStore } from "effector";
+import { StoreTypes } from "types";
+import { TaskConsts } from "consts";
 
-export const getAllTaskFx = createEffect<void, Array<StoreTypes.ITask>, Error>({
-  handler: async () => {
-    return await taskApi.getAll();
-  },
-});
+export const changeActiveTask = createEvent<StoreTypes.ITaskMock>();
+export const addFixedWork = createEvent<StoreTypes.TFixedWork>();
+export const addTask = createEvent<StoreTypes.ITaskMock>();
 
-export const getOneTaskFx = createEffect<
-  ApiTypes.TTaskGetOne,
-  StoreTypes.ITask,
-  Error
->({
-  handler: async (data) => {
-    return await taskApi.getOne(data);
-  },
-});
+export const changeStatus = createEvent<StoreTypes.ITaskMock>();
 
-export const createTaskFx = createEffect<
-  ApiTypes.TTaskCreate,
-  StoreTypes.ITask,
-  Error
->({
-  handler: async (data) => {
-    return await taskApi.create(data);
-  },
-});
+export const $allTasks = createStore<Array<StoreTypes.ITaskMock>>(
+  TaskConsts.initialTasks
+)
+  .on(changeActiveTask, (store, payload) =>
+    store.map((el) => {
+      if (el.id !== payload.id) {
+        el.isActive = false;
+        return el;
+      } else {
+        el.isActive = true;
+        return el;
+      }
+    })
+  )
+  .on(addTask, (store, payload) => [...store, payload])
+  .on(addFixedWork, (store, payload) =>
+    store.map((el) => {
+      if (el.id === payload.taskId) {
+        el.passedTime =
+          el.fixedworks
+            .map((fEl) => fEl.time)
+            .reduce((sum, sEl) => {
+              return sum + sEl;
+            }, 0) + payload.time;
+        el.fixedworks.push(payload);
+        return el;
+      } else {
+        return el;
+      }
+    })
+  )
+  .on(changeStatus, (store, payload) =>
+    store.map((el) => {
+      if (el.id !== payload.id) {
+        return el;
+      } else {
+        el.status = payload.status;
+        return el;
+      }
+    })
+  );
 
-export const getByUserIdFx = createEffect<
-  ApiTypes.TTaskGetByUserId,
-  Array<StoreTypes.ITask>,
-  Error
->({
-  handler: async (data) => {
-    return await taskApi.getByUserId(data);
-  },
-});
-
-const $allTask = createStore<Array<StoreTypes.ITask>>([])
-  .on(getAllTaskFx.doneData, (_, payload) => payload)
-  .on(createTaskFx.doneData, (store, payload) => [...store, payload]);
-
-const $taskByUserId = createStore<Array<StoreTypes.ITask>>([]).on(
-  getByUserIdFx.doneData,
-  (_, payload) => payload
+export const $activeTask = $allTasks.map(
+  (store) => store.filter((el) => el.isActive)[0]
 );
-
-export const $allTasks = combine({
-  isLoading: getAllTaskFx.pending,
-  allTask: $allTask,
-  error: getAllTaskFx.fail,
-});
-
-export const $taskByUser = combine({
-  isLoading: getByUserIdFx.pending,
-  userTasks: $taskByUserId,
-  error: getByUserIdFx.fail,
-});

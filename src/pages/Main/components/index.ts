@@ -1,3 +1,4 @@
+import { UserChartAxis } from "./UserChartAxis";
 import { Governances } from "./Governances";
 
-export { Governances };
+export { UserChartAxis, Governances };

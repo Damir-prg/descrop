@@ -57,7 +57,7 @@ app.config = {
   align: "left",
   verticalAlign: "middle",
   position: "insideBottom",
-  distance: 15
+  distance: 15,
 };
 
 type BarLabelOption = NonNullable<echarts.BarSeriesOption["label"]>;
@@ -96,7 +96,11 @@ const option: EChartsOption = {
         show: true,
         readOnly: false,
         title: "В текстовой форме",
-        lang: ["Показатели продуктивности относительно время затрат (часов)", "Закрыть", "Обновить"],
+        lang: [
+          "Показатели продуктивности относительно время затрат (часов)",
+          "Закрыть",
+          "Обновить",
+        ],
       },
       magicType: {
         show: true,
@@ -156,12 +160,12 @@ const option: EChartsOption = {
 
 const UserChartAxis = () => {
   return (
-    <div className="bg-secondBg w-full h-fit rounded-lg flex items-center justify-center">
+    <section className="bg-secondBg w-full h-fit rounded-lg flex items-center justify-center">
       <ReactEcharts
         option={option}
         style={{ height: `${400}px`, width: `100%` }}
       />
-    </div>
+    </section>
   );
 };
 

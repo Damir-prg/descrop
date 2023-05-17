@@ -8,7 +8,7 @@ const Department = (props: {
   return (
     <Link
       to={`/main/department/${props.departmentId}`}
-      className="w-full hover:bg-tnGreenLight p-2.5 rounded-xl"
+      className="w-full hover:bg-tnGreenLight p-2.5 rounded-xl border-gray-500 border-b-2"
     >
       {props.departmentName}
     </Link>

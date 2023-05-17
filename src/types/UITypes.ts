@@ -11,6 +11,7 @@ export type TCustomRowInput = {
   placeholder?: string;
   name?: string;
   required?: boolean;
+  value?: string;
 } & TAutoFocus &
   TOnChange<HTMLInputElement>;
 
