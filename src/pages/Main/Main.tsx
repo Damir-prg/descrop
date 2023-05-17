@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import { StartWrapper } from "layots";
 import { UI, Loader } from "components";
 import { useStore } from "effector-react";
-import { CommandStore } from "stores";
-import { Commands, CreateModalBlock } from "./components";
+import { AuthStore, CommandStore } from "stores";
+import {   Governances } from "./components";
 
 const Main = () => {
   const { isLoading } = useStore(CommandStore.$commandsData);
+  const { governance, departments } = useStore(AuthStore.$companyData);
 
   useEffect(() => {
     CommandStore.getAllCommandFx();
@@ -17,10 +18,17 @@ const Main = () => {
   return (
     <StartWrapper cssProps={"p-10 gap-5"}>
       <UI.Custom.Label isBlockLabel={true} textPosition={"left"}>
-        Команды
+        Управления
       </UI.Custom.Label>
-      <Commands />
-      <CreateModalBlock/>
+      {governance.map((el) => (
+        <Governances
+          key={Math.random()}
+          governance={el}
+          departments={
+            departments.filter((dEl) => dEl.governanceKey === el.key)[0]
+          }
+        />
+      ))}
     </StartWrapper>
   );
 };

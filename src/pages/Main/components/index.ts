@@ -1,6 +1,3 @@
-import {Commands} from "./Commands";
-import {CreateCommandForm} from "./CreateCommandForm";
-import {CreateModalBlock} from "./CreateModalBlock";
+import { Governances } from "./Governances";
 
-
-export {Commands, CreateCommandForm, CreateModalBlock}
+export { Governances };

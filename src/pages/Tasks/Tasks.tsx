@@ -1,42 +1,17 @@
-import React, { useState } from "react";
-import { UI } from "components";
-import { MyTasks } from "./components";
+import React from "react";
+import { StartWrapper } from "layots";
+import {Tile} from "./components";
+import {tileLinks} from "./constants";
+import "./styles/Tiles.css";
+
 
 const Tasks = () => {
-  const [filterIndexChange, setFilterIndexChange] = useState(0);
   return (
-    <div className="w-full h-full flex flex-col items-center justify-start py-6 gap-5">
-      <div className="flex flex-row flex-wrap w-full px-16 ">
-        <UI.Custom.Select
-          options={["Сначала мои", "Сначала управление"]}
-          onChange={(index) => setFilterIndexChange(index)}
-        />
-      </div>
-      <div
-        className={`flex w-full px-16 ${
-          filterIndexChange === 0 ? "flex-col" : "flex-col-reverse"
-        }`}
-      >
-        <div>
-          <UI.Custom.Label isBlockLabel={true}>Мои задачи</UI.Custom.Label>
-          <MyTasks />
-        </div>
-        <div>
-          <UI.Custom.Label isBlockLabel={true}>Задачи команды</UI.Custom.Label>
-          <MyTasks />
-        </div>
-        <div>
-          <UI.Custom.Label isBlockLabel={true}>Задачи отдела</UI.Custom.Label>
-          <MyTasks />
-        </div>
-        <div>
-          <UI.Custom.Label isBlockLabel={true}>
-            Задачи Управления
-          </UI.Custom.Label>
-          <MyTasks />
-        </div>
-      </div>
-    </div>
+    <StartWrapper cssProps={"p-10 gap-5"}>
+      <ul className="tile-wrapper">
+        {tileLinks.map(({path, label}) => <Tile path={path} label={label}/>)}
+      </ul>
+    </StartWrapper>
   );
 };
 

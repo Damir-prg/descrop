@@ -8,5 +8,3 @@ export const data: ConstsTypes.TChartData[] = [
     {name: "Знания технологий", max: 5},
     {name: "Понимание ", max: 5},
 ]
-
-export const values: number[] = [5, 4, 3, 2, 1]

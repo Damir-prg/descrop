@@ -50,3 +50,21 @@ export interface TUserUpdateInfo {
   jobTitle: string;
   phone: string | null;
 }
+
+export interface TTaskCreate {
+  type: number;
+  title: string;
+  description: string;
+  timeToEnd: number;
+  taskManagerId: number | null;
+  taskExecuterIds: Array<number>;
+  commandId: number | null;
+}
+
+export interface TTaskGetOne {
+  id: number;
+}
+
+export interface TTaskGetByUserId {
+  userId: number;
+}

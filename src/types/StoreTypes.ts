@@ -33,3 +33,16 @@ export interface ICommand extends ISequelize {
   userIds: Array<number>;
   taskIds: Array<number>;
 }
+
+export interface ITask extends ISequelize {
+  id: number;
+  isActive: boolean | null;
+  type: number;
+  title: string;
+  description: string;
+  timeToEnd: number;
+  timeEnded: number | null;
+  taskManagerId: number | null;
+  taskExecuterIds: Array<number>;
+  commandId: number | null;
+}
