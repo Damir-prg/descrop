@@ -1,13 +1,19 @@
-import { TaskStore } from "stores";
+import { TaskStore, UserStore } from "stores";
 import { useStore } from "effector-react";
+import { useMemo } from "react";
 
 const Task = () => {
-  const taskStore = useStore(TaskStore.$activeTask);
+  const activeTask = useStore(TaskStore.$activeTask);
+  const userData = useStore(UserStore.$activeUser);
+
+  const taskStore = useMemo(() => activeTask, [activeTask]);
+
   return (
     <div className="w-full">
       <h4 className="font-[600] text-xl">Наименование - {taskStore.name}</h4>
       <p>Описание: {taskStore.description}</p>
-      <span>Статус: {taskStore.status}</span>
+      <p>Статус: {taskStore.status}</p>
+      <p>Исполнитель: {userData.initials}</p>
       <table className="w-full mt-3">
         <thead>
           <tr className="border-b-2 border-white">

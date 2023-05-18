@@ -1,6 +1,5 @@
 import { UserStore } from "stores";
 import { useStore } from "effector-react";
-import { Loader } from "components";
 import { StartWrapper } from "layots";
 import {
   ActiveTask,
@@ -11,7 +10,7 @@ import {
 } from "./components";
 
 const User = () => {
-  const { isLoading, userData } = useStore(UserStore.$userInfo);
+  const userData = useStore(UserStore.$activeUser);
 
   const options = userData
     ? [
@@ -22,7 +21,6 @@ const User = () => {
         userData.understanding,
       ]
     : [];
-  if (isLoading || !userData) return <Loader.Large />;
 
   return (
     <StartWrapper cssProps={"p-10 gap-5"}>

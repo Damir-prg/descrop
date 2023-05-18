@@ -5,10 +5,8 @@ import { UI } from "components";
 import { NewUserInfoForm } from "./NewUserInfoForm";
 
 const UserJobInfo = () => {
-  const { userData } = useStore(UserStore.$userInfo);
+  const userData = useStore(UserStore.$activeUser);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
-  if (userData === null) return <></>;
 
   return (
     <>

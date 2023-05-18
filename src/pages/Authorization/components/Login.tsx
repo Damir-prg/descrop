@@ -1,32 +1,25 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { UI } from "components";
-import { isContains } from "helpers";
-import { autorizationApi } from "API";
-
 import { AuthStore, UserStore } from "stores";
 import { useStore } from "effector-react";
 
 const Login = () => {
-  const { logins } = useStore(AuthStore.$companyData);
-  const [isLoginRight, setIsLoginRight] = useState<boolean | null>(true);
+  const users = useStore(UserStore.$allUsers);
+  const [isLoginRight, setIsLoginRight] = useState<boolean>(true);
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const authCheck = async () => {
-    const res = await autorizationApi.login({ login, password });
-    if (res.result) {
-      await UserStore.getUserDataFx({ id: res.userId });
-      await UserStore.getAllUsersDataFx();
-      AuthStore.changeStatus();
-    } else {
-      alert("Неправильный логин или пароль");
-    }
-  };
+  const logins = useMemo(() => users.map((el) => el.login), [users]);
 
   const handleLogin = () => {
-    setIsLoginRight(isContains<string>(login, logins));
-    if (isContains<string>(login, logins)) {
-      authCheck();
+    if (logins.includes(login)) {
+      if (password === users.find((el) => el.login === login)?.password) {
+        const userIndex = users.findIndex((el) => el.login === login);
+        UserStore.setActiveUser(users[userIndex]);
+        AuthStore.changeStatus();
+      } else alert("Wrong password");
+    } else {
+      alert("Wrong login");
     }
   };
 

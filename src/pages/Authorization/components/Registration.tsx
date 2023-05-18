@@ -1,20 +1,22 @@
-import React, { FC, useState } from "react";
+import React, { FC, useMemo, useState } from "react";
 import { ApiTypes } from "types";
 import { UI } from "components";
-import { AuthStore } from "stores";
+import { AuthStore, UserStore } from "stores";
 import { isContains, getDepartment } from "helpers";
 import { getFormData, register } from "../helpers";
 import { useStore } from "effector-react";
 
 const Registration: FC<{ isChanged: boolean }> = ({ isChanged }) => {
-  const { isLoading, governance, departments, logins } = useStore(
+  const { isLoading, governance, departments } = useStore(
     AuthStore.$companyData
   );
+  const users = useStore(UserStore.$allUsers);
+  const logins = useMemo(() => users.map((el) => el.login), [users]);
   const [selectedGovernance, setSelectedGovernance] = useState<string>("");
   const [selectedDepartment, setSelectedDepartment] = useState<string>("");
   const [selectDepartments, setSelectDepartments] = useState<string[]>([]);
   const [isRegistred, setIsRegistred] = useState<boolean>(false);
-  const governanceTitles = governance.map((el) => el.title)
+  const governanceTitles = governance.map((el) => el.title);
 
   // React.ChangeEvent<HTMLSelectElement>
   const handleGovernanceChange = (index: number) => {
@@ -38,7 +40,7 @@ const Registration: FC<{ isChanged: boolean }> = ({ isChanged }) => {
         governance: selectedGovernance,
         department: selectedDepartment,
       };
-      register(formData, setIsRegistred);
+      register(formData, setIsRegistred, users.length - 1);
     } else {
       alert("Пользователь с таким логином уже существует");
     }

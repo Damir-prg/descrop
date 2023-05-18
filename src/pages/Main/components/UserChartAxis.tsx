@@ -1,6 +1,7 @@
 import React from "react";
 import ReactEcharts from "echarts-for-react";
 import * as echarts from "echarts";
+import { mockCommands } from "../../../consts/Commands";
 
 const app: any = {};
 type EChartsOption = echarts.EChartsOption;
@@ -118,7 +119,7 @@ const option: EChartsOption = {
     {
       type: "category",
       axisTick: { show: false },
-      data: ["Проект 1", "Проект 2", "Проект 3", "Проект 4", "Проект 5"],
+      data: mockCommands.map((el) => el.name),
     },
   ],
   yAxis: [
@@ -135,7 +136,7 @@ const option: EChartsOption = {
       emphasis: {
         focus: "series",
       },
-      data: [160, 160, 160, 160, 160],
+      data: [160, 160, 160, 160],
     },
     {
       name: "Среднее",
@@ -144,7 +145,7 @@ const option: EChartsOption = {
       emphasis: {
         focus: "series",
       },
-      data: [134, 145, 127, 154, 167],
+      data: [134, 145, 127, 154],
     },
     {
       name: "Фактическое",
@@ -153,7 +154,7 @@ const option: EChartsOption = {
       emphasis: {
         focus: "series",
       },
-      data: [98, 78, 120, 111, 114],
+      data: [98, 78, 120, 111],
     },
   ],
 };

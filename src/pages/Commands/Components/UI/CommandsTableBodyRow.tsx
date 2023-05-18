@@ -8,7 +8,7 @@ const CommandsTableBodyRow = ({
 }: {
   command: StoreTypes.ICommand;
 }) => {
-  const { allUsersData } = useStore(UserStore.$userInfo);
+  const allUsersData = useStore(UserStore.$allUsers);
   const user = allUsersData.find((user) => user.id === command.managerUserId);
 
   return (

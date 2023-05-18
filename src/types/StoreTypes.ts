@@ -61,7 +61,7 @@ export interface ITaskMock {
   timeToEnd: number;
   fixedworks: Array<TFixedWork>;
   passedTime: number;
-  status: "Выполняется" | "Не начата" | "Приостановлена";
+  status: "Выполняется" | "Не начата" | "Приостановлена" | "Завершена";
   type: "gov" | "dep" | "com" | "self";
   isActive: boolean;
   commandId?: number;

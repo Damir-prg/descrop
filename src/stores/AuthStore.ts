@@ -1,4 +1,4 @@
-import {combine, createEffect, createEvent, createStore} from "effector";
+import { combine, createEffect, createEvent, createStore } from "effector";
 import { autorizationApi } from "API";
 import { BaseTypes, ApiTypes } from "types";
 
@@ -10,12 +10,7 @@ export const getCompanyDataFx = createEffect<void, ApiTypes.TAuthGetAll, Error>(
   }
 );
 
-export const addLogin = createEvent<string>()
-
-const $logins = createStore<Array<string>>([]).on(
-  getCompanyDataFx.doneData,
-  (_, payload) => payload.logins
-).on(addLogin, (store, payload) => [...store, payload])
+export const addLogin = createEvent<string>();
 
 const $governance = createStore<Array<BaseTypes.TGovernance>>([]).on(
   getCompanyDataFx.doneData,
@@ -37,5 +32,4 @@ export const $companyData = combine({
   isLoading: getCompanyDataFx.pending,
   governance: $governance,
   departments: $departments,
-  logins: $logins
-})
+});

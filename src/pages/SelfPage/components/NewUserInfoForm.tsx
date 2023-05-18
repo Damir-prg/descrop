@@ -3,7 +3,7 @@ import { UI } from "components";
 import { getDepartment } from "helpers";
 import { updateUserInfo } from "../helpers";
 import { StoreTypes, ComponentsTypes } from "types";
-import { UserStore, AuthStore } from "stores";
+import { AuthStore } from "stores";
 import { useStore } from "effector-react";
 
 const NewUserInfoForm: FC<ComponentsTypes.TNewUserInfoFrom> = ({
@@ -45,7 +45,6 @@ const NewUserInfoForm: FC<ComponentsTypes.TNewUserInfoFrom> = ({
 
   useEffect(() => {
     if (data) {
-      UserStore.setNewUserinfo(data);
       updateUserInfo(data);
     }
   }, [data]);

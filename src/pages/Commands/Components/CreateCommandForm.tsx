@@ -8,7 +8,8 @@ import { useStore } from "effector-react";
 
 const CreateCommandForm = () => {
   const { departments } = useStore(AuthStore.$companyData);
-  const { userData, allUsersData } = useStore(UserStore.$userInfo);
+  const userData = useStore(UserStore.$activeUser);
+  const allUsersData = useStore(UserStore.$allUsers);
   const [selectedUsers, setSelectedUsers] = useState<Array<number>>([]);
   const users = allUsersData.filter((el) => el.id !== userData?.id);
 

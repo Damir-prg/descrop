@@ -4,9 +4,8 @@ import { UserStore } from "stores";
 import { UI } from "components";
 
 const UserNumberCharacter = () => {
-  const { userData } = useStore(UserStore.$userInfo);
+  const userData = useStore(UserStore.$activeUser);
 
-  if (userData === null) return <></>;
   return (
     <>
       <UI.Custom.Label isBlockLabel={true}>

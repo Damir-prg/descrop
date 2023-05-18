@@ -37,7 +37,7 @@ const TaskWorks = () => {
         ))}
       </ul>
       <form
-        className="flex flex-col items-center justify-center w-full gap-2"
+        className="flex flex-col items-center justify-center w-full gap-2 custom__shadow-inner rounded-xl p-4"
         onSubmit={(e) => handleSubmit(e)}
       >
         <div className="w-full flex flex-row gap-5">
