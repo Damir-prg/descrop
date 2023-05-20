@@ -1,0 +1,15 @@
+.user-list-table {
+    width: 100%;
+}
+
+.user-list-table td, .user-list-table th {
+    padding: 5px 10px;
+}
+
+.user-list-table__thead > tr {
+    border-bottom: 2px solid black;
+}
+
+.user-list-table__tbody > tr:nth-child(2n+1) {
+    background: #86efac;
+}

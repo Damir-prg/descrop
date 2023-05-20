@@ -7,7 +7,7 @@ import { AuthStore } from "stores";
 const Governances = () => {
   const { governance, departments } = useStore(AuthStore.$companyData);
   return (
-    <aside className="flex flex-col gap-2 custom__shadow-inner p-2 rounded-xl">
+    <aside className="h-fit flex flex-col gap-2 custom__shadow-inner p-2 rounded-xl">
       <UI.Custom.Label isBlockLabel={true} textPosition={"left"}>
         Управления
       </UI.Custom.Label>

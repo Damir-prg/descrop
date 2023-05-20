@@ -1,30 +1,35 @@
-import React, {FC} from 'react';
-import {UITypes} from "../../types";
+import React, { FC } from "react";
+import { UITypes } from "../../types";
 
-
-const ModalWrapper: FC<UITypes.TModalWrapper> = ({isOpen, setIsOpen, children}) => {
-    return (
-        isOpen
-        ?
-            <>
-                <div className="
+const ModalWrapper: FC<UITypes.TModalWrapper> = ({
+  isOpen,
+  setIsOpen,
+  children,
+}) => {
+  return isOpen ? (
+    <>
+      <div
+        className="
                 absolute top-0 left-0 z-50
-                w-full h-full
+                w-full h-screen
                 bg-neutral-800
                 opacity-80
                 flex items-center justify-center
                 cursor-pointer
-                "
-                     onClick={() => setIsOpen(false)}
-                />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                w-fit h-fit bg-secondBg rounded-lg p-6 z-50">
-                    {children}
-                </div>
-            </>
 
-            : <></>
-    );
+                "
+        onClick={() => setIsOpen(false)}
+      />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                w-fit h-fit bg-secondBg rounded-lg p-6 z-50"
+      >
+        {children}
+      </div>
+    </>
+  ) : (
+    <></>
+  );
 };
 
-export {ModalWrapper};
+export { ModalWrapper };
