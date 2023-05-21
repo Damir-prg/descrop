@@ -1,0 +1,16 @@
+.task-by-table {
+    width: 45vmax;
+}
+
+.task-by-table__thead th, .task-by-table__tbody td {
+    padding: 4px 8px;
+    border-right: 2px solid black;
+}
+
+.task-by-table__thead th:last-child, .task-by-table__tbody td:last-child {
+    border-right: none;
+}
+
+.task-by-table__thead > tr {
+    border-bottom: 2px solid black;
+}

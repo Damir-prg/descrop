@@ -62,8 +62,8 @@ export interface ITaskMock {
   fixedworks: Array<TFixedWork>;
   passedTime: number;
   status: "Выполняется" | "Не начата" | "Приостановлена" | "Завершена";
-  type: "gov" | "dep" | "com" | "self";
   isActive: boolean;
-  commandId?: number;
-  departmentId?: number;
+  userId: number;
+  commandId: number;
+  departmentId: number;
 }

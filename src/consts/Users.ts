@@ -159,7 +159,7 @@ export const mockUsers: Array<StoreTypes.IUser> = [
   {
     id: 8,
     login: "user-8",
-    initials: "Васильев Гарри Рубенович",
+    initials: "Владимиров Анатолий Аристархович",
     password: "test",
     governance: "Управление разработки программных продуктов",
     department: "Отдел фронт-енд",

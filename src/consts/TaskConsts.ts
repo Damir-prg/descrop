@@ -1,26 +1,142 @@
 import { StoreTypes } from "types";
+import { mockUsers } from "./Users";
+import { mockCommands } from "./Commands";
 
-export const initialActiveTask: StoreTypes.ITaskMock = {
-  id: 0,
-  name: "Разработать фильтр",
-  description: "Описание задачи",
-  timeToEnd: 160,
-  passedTime: 6,
-  type: "self",
-  fixedworks: [
-    { name: "Добавлен lyout", time: 2, taskId: 1 },
-    { name: "Добавлены input'ы", time: 4, taskId: 1 },
-  ],
-  isActive: true,
-  status: "Выполняется",
-  executerName: "Иванов Иван Иванович",
-};
-
-const commandTask = JSON.parse(
-  JSON.stringify(initialActiveTask)
-) as StoreTypes.ITaskMock;
-commandTask.commandId = 1;
-commandTask.isActive = false;
-commandTask.executerName = "Орлов Дмитрий Валерикович";
-commandTask.name = "Задача команды";
-export const initialTasks: Array<StoreTypes.ITaskMock> = [initialActiveTask];
+export const initialAllTasks: Array<StoreTypes.ITaskMock> = [
+  {
+    id: 1,
+    name: "Разработать фильтр",
+    description: "Описание задачи",
+    executerName: mockUsers[0].initials,
+    timeToEnd: 160,
+    fixedworks: [
+      { name: "Добавлен layout", time: 30, taskId: 1 },
+      { name: "Добавлены input'ы", time: 4, taskId: 1 },
+    ],
+    passedTime: 44,
+    status: "Выполняется",
+    isActive: true,
+    userId: mockUsers[0].id,
+    commandId: mockCommands[0].id,
+    departmentId: 14,
+  },
+  {
+    id: 2,
+    name: "Разработать генератор случайных чисел",
+    description: "Описание задачи",
+    executerName: mockUsers[1].initials,
+    timeToEnd: 160,
+    fixedworks: [
+      { name: "Добавлен layout", time: 30, taskId: 2 },
+      { name: "Добавлены input'ы", time: 4, taskId: 2 },
+    ],
+    passedTime: 44,
+    status: "Выполняется",
+    isActive: true,
+    userId: mockUsers[1].id,
+    commandId: mockCommands[0].id,
+    departmentId: 14,
+  },
+  {
+    id: 3,
+    name: "Разработать back-end",
+    description: "Описание задачи",
+    executerName: mockUsers[2].initials,
+    timeToEnd: 160,
+    fixedworks: [
+      { name: "Добавлен layout", time: 30, taskId: 3 },
+      { name: "Добавлены input'ы", time: 4, taskId: 3 },
+    ],
+    passedTime: 44,
+    status: "Выполняется",
+    isActive: true,
+    userId: mockUsers[2].id,
+    commandId: mockCommands[1].id,
+    departmentId: 14,
+  },
+  {
+    id: 4,
+    name: "Разработать front-end",
+    description: "Описание задачи",
+    executerName: mockUsers[3].initials,
+    timeToEnd: 160,
+    fixedworks: [
+      { name: "Добавлен layout", time: 30, taskId: 4 },
+      { name: "Добавлены input'ы", time: 4, taskId: 4 },
+    ],
+    passedTime: 44,
+    status: "Выполняется",
+    isActive: true,
+    userId: mockUsers[3].id,
+    commandId: mockCommands[1].id,
+    departmentId: 14,
+  },
+  {
+    id: 5,
+    name: "Разработать database",
+    description: "Описание задачи",
+    executerName: mockUsers[4].initials,
+    timeToEnd: 160,
+    fixedworks: [
+      { name: "Добавлен layout", time: 30, taskId: 5 },
+      { name: "Добавлены input'ы", time: 4, taskId: 5 },
+    ],
+    passedTime: 44,
+    status: "Выполняется",
+    isActive: true,
+    userId: mockUsers[4].id,
+    commandId: mockCommands[2].id,
+    departmentId: 14,
+  },
+  {
+    id: 6,
+    name: "Подготовить тесты",
+    description: "Описание задачи",
+    executerName: mockUsers[5].initials,
+    timeToEnd: 160,
+    fixedworks: [
+      { name: "Добавлен layout", time: 30, taskId: 6 },
+      { name: "Добавлены input'ы", time: 4, taskId: 6 },
+    ],
+    passedTime: 44,
+    status: "Выполняется",
+    isActive: true,
+    userId: mockUsers[5].id,
+    commandId: mockCommands[2].id,
+    departmentId: 14,
+  },
+  {
+    id: 7,
+    name: "Протестировать старую реализацию",
+    description: "Описание задачи",
+    executerName: mockUsers[6].initials,
+    timeToEnd: 160,
+    fixedworks: [
+      { name: "Добавлен layout", time: 30, taskId: 7 },
+      { name: "Добавлены input'ы", time: 4, taskId: 7 },
+    ],
+    passedTime: 44,
+    status: "Выполняется",
+    isActive: true,
+    userId: mockUsers[6].id,
+    commandId: mockCommands[3].id,
+    departmentId: 14,
+  },
+  {
+    id: 8,
+    name: "Подготовить документацию",
+    description: "Описание задачи",
+    executerName: mockUsers[7].initials,
+    timeToEnd: 160,
+    fixedworks: [
+      { name: "Добавлен layout", time: 30, taskId: 8 },
+      { name: "Добавлены input'ы", time: 4, taskId: 8 },
+    ],
+    passedTime: 44,
+    status: "Выполняется",
+    isActive: true,
+    userId: mockUsers[7].id,
+    commandId: mockCommands[3].id,
+    departmentId: 14,
+  },
+];

@@ -1,5 +1,5 @@
 import { UtilsTypes } from "../types";
-import { Auth, User, Tasks, Main, CommandsPage } from "../pages";
+import { Auth, User, Tasks, Main, CommandsPage, TaskBy, Cloud } from "../pages";
 import { Navigate } from "react-router-dom";
 
 export const publicRoutes: UtilsTypes.IRoutes[] = [
@@ -16,7 +16,8 @@ export const authRoutes: UtilsTypes.IRoutes[] = [
   { path: "/main/department/:id", element: <CommandsPage /> },
   { path: "/user", element: <User /> },
   { path: "/tasks", element: <Tasks /> },
-  { path: "/cloud", element: <></> },
+  { path: "/tasks/:name", element: <TaskBy /> },
+  { path: "/cloud", element: <Cloud /> },
 ];
 
 export const authException: UtilsTypes.IRoutes = {

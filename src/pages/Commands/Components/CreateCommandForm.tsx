@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { UI } from "components";
-import { AuthStore, UserStore } from "stores";
+import { AuthStore, CommandStore, UserStore } from "stores";
 import { handleFormSubmit } from "../helpers";
 import { isContains } from "helpers";
 
@@ -8,6 +8,7 @@ import { useStore } from "effector-react";
 
 const CreateCommandForm = () => {
   const { departments } = useStore(AuthStore.$companyData);
+  const commands = useStore(CommandStore.$commands);
   const userData = useStore(UserStore.$activeUser);
   const allUsersData = useStore(UserStore.$allUsers);
   const [selectedUsers, setSelectedUsers] = useState<Array<number>>([]);
@@ -19,7 +20,13 @@ const CreateCommandForm = () => {
     <form
       className="flex flex-col items-center justify-center gap-2 bg-mainBg p-8 rounded-xl w-[650px]"
       onSubmit={(e) =>
-        handleFormSubmit(e, userData, departments, selectedUsers)
+        handleFormSubmit(
+          e,
+          userData,
+          departments,
+          selectedUsers,
+          commands.length + 1
+        )
       }
     >
       <h2 className="text-blockBg font-light mb-3 text-2xl">

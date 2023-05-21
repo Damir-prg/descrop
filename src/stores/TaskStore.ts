@@ -1,6 +1,8 @@
 import { createEvent, createStore } from "effector";
 import { StoreTypes } from "types";
+
 import { TaskConsts } from "consts";
+import { $activeUser } from "./UserMockStore";
 
 export const changeActiveTask = createEvent<StoreTypes.ITaskMock>();
 export const addFixedWork = createEvent<StoreTypes.TFixedWork>();
@@ -9,7 +11,7 @@ export const addTask = createEvent<StoreTypes.ITaskMock>();
 export const changeStatus = createEvent<StoreTypes.ITaskMock>();
 
 export const $allTasks = createStore<Array<StoreTypes.ITaskMock>>(
-  TaskConsts.initialTasks
+  TaskConsts.initialAllTasks
 )
   .on(changeActiveTask, (store, payload) =>
     store.map((el) => {
@@ -51,5 +53,8 @@ export const $allTasks = createStore<Array<StoreTypes.ITaskMock>>(
   );
 
 export const $activeTask = $allTasks.map(
-  (store) => store.filter((el) => el.isActive)[0]
+  (store) =>
+    store.filter(
+      (el) => el.isActive && $activeUser.getState().id === el.userId
+    )[0]
 );
